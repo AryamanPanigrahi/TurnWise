@@ -46,3 +46,4 @@ answer. Revisit only if drivers ask many questions outside the 6 intents.
 |---|---|---|
 | PyYAML | voice | Parse `voice/templates/<lang>.yaml`; YAML is readable for non-programmer reviewers of translations. |
 | pytest | tests | Standard Python test runner; replay and unit tests. |
+| sounddevice (optional, not in pyproject) | voice demo | Microphone capture for the laptop push-to-talk demo only; the app records audio on Android. |

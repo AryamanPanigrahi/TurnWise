@@ -31,3 +31,7 @@ dashboard/dist/
 .DS_Store
 .idea/
 .vscode/
+
+# Voice demo outputs
+voice/out/
+voice/logs/
