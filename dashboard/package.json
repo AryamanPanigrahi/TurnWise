@@ -1,0 +1,9 @@
+{
+  "name": "turnwise-dashboard",
+  "private": true,
+  "type": "module",
+  "description": "Fleet dashboard. For now: a viewer for recorded test drives in traces/.",
+  "scripts": {
+    "test": "node --test trace-viewer/trace.test.js"
+  }
+}
