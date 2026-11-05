@@ -13,3 +13,11 @@ dev = ["pytest>=8"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["."]
+
+# Explicit package list: the repo has several top-level folders (app/, engine/,
+# backend/, ...) and setuptools refuses to guess which ones are Python packages.
+[tool.setuptools.packages.find]
+include = ["voice*", "tools*"]
+
+[tool.setuptools.package-data]
+voice = ["templates/*.yaml"]

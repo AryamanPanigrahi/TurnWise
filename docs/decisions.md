@@ -48,6 +48,13 @@ one-word intent label fits in 20 tokens. TTS takes `language_code`, not
 `target_language_code`. Prices are pay-as-you-go, excl. GST: STT ₹29.40/audio hour,
 LLM ₹15 / ₹60 per 1M input / output tokens. Re-check before the first pilot.
 
+### 0007 — Traces use the `POST /v1/gps` point shape  (2026-11-05, Ram, status: proposed)
+Recorded drives are stored as `.jsonl`, one contract point per line, plus a
+hand-written `.expected.json` with the events the engine should raise. Replay
+tests then use the exact shape the app sends. `tools/gpx_to_trace.py` converts
+GPSLogger exports (stdlib only) and trims 200 m off each end for privacy. The
+expected-events format needs Aryaman's sign-off, since he owns the replay tests.
+
 ## Dependencies
 
 | Package | Area | Reason |
