@@ -1,0 +1,56 @@
+# Runs every test suite on pushes to main and on every pull request.
+# Each job skips itself when its folder doesn't exist yet on the branch.
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"   # the stack's version (CLAUDE.md)
+          cache: pip
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+      - name: Check recorded traces
+        run: python -m tools.trace_check
+
+  app-core:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: has
+        run: echo "app=$([ -f app/settings.gradle.kts ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
+      - if: steps.has.outputs.app == 'yes'
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+      - if: steps.has.outputs.app == 'yes'
+        uses: gradle/actions/setup-gradle@v4
+      - if: steps.has.outputs.app == 'yes'
+        working-directory: app
+        run: ./gradlew :core:test --console=plain
+
+  dashboard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: has
+        run: echo "dash=$([ -f dashboard/package.json ] && echo yes || echo no)" >> "$GITHUB_OUTPUT"
+      - if: steps.has.outputs.dash == 'yes'
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - if: steps.has.outputs.dash == 'yes'
+        working-directory: dashboard
+        run: npm test
