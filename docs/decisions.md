@@ -61,6 +61,14 @@ recorded drives: one HTML page plus a small pure-JS module, served with
 `python -m http.server`, no build step and no npm packages. Map tiles come from
 OpenStreetMap with attribution. The real dashboard's stack is decided in Week 7.
 
+### 0010 — CI runs every test suite on each PR  (2026-11-05, Ram, status: proposed)
+GitHub Actions (`.github/workflows/tests.yml`) runs pytest plus `tools.trace_check`,
+the Kotlin `app/core` tests and the dashboard tests on every pull request, so a
+reviewer sees green or red before reading the diff. Each job skips itself until
+its folder exists. Ram's side also adopts the TurnWise name (package name, demo
+banner, database names in `.env.example`); the contract schema `$id` is left for
+both founders to change together.
+
 ## Dependencies
 
 | Package | Area | Reason |
