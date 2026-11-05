@@ -30,8 +30,7 @@ testable offline. Unmatched utterances go to the Sarvam LLM fallback (later).
 No HTTP dependency yet: the voice loop is synchronous push-to-talk, so urllib is
 enough, and tests inject a fake transport (no network). If the backend needs
 async calls from FastAPI, swap in an httpx transport — the interface stays.
-Model names, endpoints and prices are UNVERIFIED (docs.sarvam.ai was not
-reachable when written) and are overridable from `.env`.
+Model names, endpoints and prices are overridable from `.env` (verified in 0006).
 
 ### 0005 — The AI model only classifies; templates always phrase  (2026-11-05, Ram, status: proposed)
 CLAUDE.md lets the model phrase given facts. We go stricter: for unknown
@@ -39,6 +38,30 @@ questions the model only picks one of the 6 intent labels (validated against a
 fixed list), and the answer is rendered from templates. The model can never
 state a direction or distance, and prompt-injected speech cannot change the
 answer. Revisit only if drivers ask many questions outside the 6 intents.
+
+### 0006 — Sarvam models and prices checked against the docs  (2026-11-05, Ram, status: proposed)
+Checked docs.sarvam.ai: `saarika:*` is deprecated (the API now accepts only
+`saaras:v3`/`saaras:v4`), `sarvam-m` is no longer served, and `bulbul:v2` is legacy.
+Defaults are now `saaras:v4`, `bulbul:v4-flash` (₹10 per 10k chars vs ₹30 for v3)
+with per-language speakers, and `sarvam-105b` with reasoning turned off so the
+one-word intent label fits in 20 tokens. TTS takes `language_code`, not
+`target_language_code`. Prices are pay-as-you-go, excl. GST: STT ₹29.40/audio hour,
+LLM ₹15 / ₹60 per 1M input / output tokens. Re-check before the first pilot.
+
+### 0007 — Traces use the `POST /v1/gps` point shape  (2026-11-05, Ram, status: proposed)
+Recorded drives are stored as `.jsonl`, one contract point per line, plus a
+hand-written `.expected.json` with the events the engine should raise. Replay
+tests then use the exact shape the app sends. `tools/gpx_to_trace.py` converts
+GPSLogger exports (stdlib only) and trims 200 m off each end for privacy. The
+expected-events format needs Aryaman's sign-off, since he owns the replay tests.
+
+### 0010 — CI runs every test suite on each PR  (2026-11-05, Ram, status: proposed)
+GitHub Actions (`.github/workflows/tests.yml`) runs pytest plus `tools.trace_check`,
+the Kotlin `app/core` tests and the dashboard tests on every pull request, so a
+reviewer sees green or red before reading the diff. Each job skips itself until
+its folder exists. Ram's side also adopts the TurnWise name (package name, demo
+banner, database names in `.env.example`); the contract schema `$id` is left for
+both founders to change together.
 
 ## Dependencies
 

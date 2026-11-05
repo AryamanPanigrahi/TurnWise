@@ -133,7 +133,7 @@ class SarvamClient:
     def text_to_speech(self, text: str, lang: str, timeout: float | None = None) -> TtsResult:
         payload = {
             "text": text,
-            "target_language_code": self._lang(lang),
+            "language_code": self._lang(lang),
             "speaker": self.cfg.speaker_for(lang),
             "model": self.cfg.tts_model,
             "speech_sample_rate": self.cfg.tts_sample_rate,
@@ -148,12 +148,20 @@ class SarvamClient:
 
     def chat(self, messages: list[dict[str, str]], timeout: float | None = None,
              max_tokens: int = 20) -> ChatResult:
+        # reasoning_effort=None turns reasoning off. sarvam-105b reasons by default,
+        # and reasoning tokens count toward max_tokens, so with a 20-token cap the
+        # label would be cut off (and the call would be slower).
         payload = {"model": self.cfg.llm_model, "messages": messages,
-                   "temperature": 0, "max_tokens": max_tokens}
+                   "temperature": 0, "max_tokens": max_tokens, "reasoning_effort": None}
         data = self._post("/v1/chat/completions", json.dumps(payload).encode(), "application/json", timeout)
         try:
             text = data["choices"][0]["message"]["content"] or ""
         except (KeyError, IndexError, TypeError) as e:
             raise SarvamError("chat returned unexpected shape") from e
-        tokens = int((data.get("usage") or {}).get("total_tokens", 0))
-        return ChatResult(text, tokens, tokens / 1000.0 * self.cfg.llm_inr_per_1k_tokens)
+        usage = data.get("usage") or {}
+        tokens_in = int(usage.get("prompt_tokens", 0) or 0)
+        tokens_out = int(usage.get("completion_tokens", 0) or 0)
+        tokens = int(usage.get("total_tokens", 0) or 0) or tokens_in + tokens_out
+        cost = (tokens_in * self.cfg.llm_inr_per_1m_input_tokens
+                + tokens_out * self.cfg.llm_inr_per_1m_output_tokens) / 1_000_000.0
+        return ChatResult(text, tokens, cost)
