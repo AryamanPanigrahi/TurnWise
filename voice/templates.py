@@ -24,7 +24,7 @@ REQUIRED_ANSWERS = (
     "not_sure",
     "please_repeat",
 )
-REQUIRED_ALERTS = ("off_route", "back_on_route")
+REQUIRED_ALERTS = ("off_route", "off_route_generic", "back_on_route")
 REQUIRED_UNITS = ("m", "km", "min", "hour", "hour_min")
 
 

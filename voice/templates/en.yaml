@@ -74,4 +74,5 @@ answers:
 # Wrong-way alerts: templated only, never the AI model (CLAUDE.md #2).
 alerts:
   off_route: "Wrong way! In {distance}, {recovery}."
+  off_route_generic: "Wrong way! Follow the screen."
   back_on_route: "You are back on route."

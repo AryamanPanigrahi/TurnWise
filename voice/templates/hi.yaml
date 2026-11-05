@@ -69,4 +69,5 @@ answers:
 
 alerts:
   off_route: "गलत रास्ता! {distance} बाद {recovery}।"
+  off_route_generic: "गलत रास्ता! स्क्रीन देखिए।"
   back_on_route: "आप फिर से सही रास्ते पर हैं।"

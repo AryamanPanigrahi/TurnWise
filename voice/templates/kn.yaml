@@ -71,4 +71,5 @@ answers:
 
 alerts:
   off_route: "ತಪ್ಪು ದಾರಿ! {distance} ನಂತರ {recovery}."
+  off_route_generic: "ತಪ್ಪು ದಾರಿ! ಸ್ಕ್ರೀನ್ ನೋಡಿ."
   back_on_route: "ಮತ್ತೆ ಸರಿಯಾದ ದಾರಿಗೆ ಬಂದಿದ್ದೀರಿ."
