@@ -17,7 +17,7 @@ pythonpath = ["."]
 # Explicit package list: the repo has several top-level folders (app/, engine/,
 # backend/, ...) and setuptools refuses to guess which ones are Python packages.
 [tool.setuptools.packages.find]
-include = ["voice*", "tools*"]
+include = ["voice*", "tools*", "engine*"]
 
 [tool.setuptools.package-data]
 voice = ["templates/*.yaml"]
