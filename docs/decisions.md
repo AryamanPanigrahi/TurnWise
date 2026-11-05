@@ -63,6 +63,12 @@ offline buffer, upload retries, event sequencing, push-to-talk) live in
 `app/core`, a plain Kotlin module tested on the JVM; the Android module stays thin.
 Revisit if an iOS app becomes a requirement.
 
+### 0009 — Trace viewer as a static page with Leaflet  (2026-11-05, Ram, status: proposed)
+Before the backend exists, the useful dashboard piece is a viewer for the
+recorded drives: one HTML page plus a small pure-JS module, served with
+`python -m http.server`, no build step and no npm packages. Map tiles come from
+OpenStreetMap with attribution. The real dashboard's stack is decided in Week 7.
+
 ## Dependencies
 
 | Package | Area | Reason |
@@ -72,3 +78,5 @@ Revisit if an iOS app becomes a requirement.
 | sounddevice (optional, not in pyproject) | voice demo | Microphone capture for the laptop push-to-talk demo only; the app records audio on Android. |
 | kotlinx-serialization-json | app | JSON for the gps and events contracts; the official Kotlin library, no reflection, works the same on JVM and Android. |
 | kotlin-test (JUnit 5) | app tests | Standard Kotlin test assertions on the JVM. |
+
+| Leaflet 1.9.4 (CDN, pinned with SRI) | dashboard | The standard small library for OSM maps; no build step needed. |
