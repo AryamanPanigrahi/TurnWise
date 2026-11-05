@@ -55,6 +55,12 @@ tests then use the exact shape the app sends. `tools/gpx_to_trace.py` converts
 GPSLogger exports (stdlib only) and trims 200 m off each end for privacy. The
 expected-events format needs Aryaman's sign-off, since he owns the replay tests.
 
+### 0009 — Trace viewer as a static page with Leaflet  (2026-11-05, Ram, status: proposed)
+Before the backend exists, the useful dashboard piece is a viewer for the
+recorded drives: one HTML page plus a small pure-JS module, served with
+`python -m http.server`, no build step and no npm packages. Map tiles come from
+OpenStreetMap with attribution. The real dashboard's stack is decided in Week 7.
+
 ## Dependencies
 
 | Package | Area | Reason |
@@ -62,3 +68,4 @@ expected-events format needs Aryaman's sign-off, since he owns the replay tests.
 | PyYAML | voice | Parse `voice/templates/<lang>.yaml`; YAML is readable for non-programmer reviewers of translations. |
 | pytest | tests | Standard Python test runner; replay and unit tests. |
 | sounddevice (optional, not in pyproject) | voice demo | Microphone capture for the laptop push-to-talk demo only; the app records audio on Android. |
+| Leaflet 1.9.4 (CDN, pinned with SRI) | dashboard | The standard small library for OSM maps; no build step needed. |
