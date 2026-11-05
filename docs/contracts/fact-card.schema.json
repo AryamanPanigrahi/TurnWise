@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FactCard (DRAFT)",
+  "type": "object",
+  "required": ["type", "on_route", "alternatives", "distance_m", "confidence"],
+  "properties": {
+    "type": { "type": "string", "examples": ["flyover_vs_service"] },
+    "on_route": { "type": "string" },
+    "alternatives": { "type": "array", "items": { "type": "string" } },
+    "distance_m": { "type": "number", "minimum": 0 },
+    "landmark": { "type": ["string", "null"] },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+  }
+}
