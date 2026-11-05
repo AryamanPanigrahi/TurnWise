@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.turnwise.driver.core.TripEventsTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-05T14:59:50.875Z" hostname="vm" time="0.032">
+  <properties/>
+  <testcase name="parsesEveryContractEvent()" classname="com.turnwise.driver.core.TripEventsTest" time="0.028"/>
+  <testcase name="sequencerDropsDuplicatesAndCountsGaps()" classname="com.turnwise.driver.core.TripEventsTest" time="0.001"/>
+  <testcase name="unknownEventsAreKeptForSeqButInvalidFramesAreNull()" classname="com.turnwise.driver.core.TripEventsTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

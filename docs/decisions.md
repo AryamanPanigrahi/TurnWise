@@ -55,6 +55,14 @@ tests then use the exact shape the app sends. `tools/gpx_to_trace.py` converts
 GPSLogger exports (stdlib only) and trims 200 m off each end for privacy. The
 expected-events format needs Aryaman's sign-off, since he owns the replay tests.
 
+### 0010 — CI runs every test suite on each PR  (2026-11-05, Ram, status: proposed)
+GitHub Actions (`.github/workflows/tests.yml`) runs pytest plus `tools.trace_check`,
+the Kotlin `app/core` tests and the dashboard tests on every pull request, so a
+reviewer sees green or red before reading the diff. Each job skips itself until
+its folder exists. Ram's side also adopts the TurnWise name (package name, demo
+banner, database names in `.env.example`); the contract schema `$id` is left for
+both founders to change together.
+
 ## Dependencies
 
 | Package | Area | Reason |
