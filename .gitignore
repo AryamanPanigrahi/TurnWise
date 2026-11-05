@@ -1,0 +1,33 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Valhalla / OSM build outputs (large, reproducible)
+routing/data/
+routing/tiles/
+*.osm.pbf
+
+# Generated TTS audio cache
+voice/cache/
+
+# Android / Node
+app/build/
+app/.gradle/
+dashboard/node_modules/
+dashboard/dist/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
