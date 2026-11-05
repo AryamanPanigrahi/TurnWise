@@ -28,7 +28,7 @@ def test_stt_sends_language_and_key_and_computes_cost():
     call = t.calls[0]
     assert call["headers"]["api-subscription-key"] == "test-key"
     assert call["headers"]["Content-Type"].startswith("multipart/form-data")
-    assert b"kn-IN" in call["body"] and b"saarika" in call["body"]
+    assert b"kn-IN" in call["body"] and b"saaras:v4" in call["body"]
 
 
 def test_tts_decodes_audio_and_costs_by_chars():
@@ -38,15 +38,19 @@ def test_tts_decodes_audio_and_costs_by_chars():
     assert r.wav == wav
     assert abs(r.cost_inr - len("नमस्ते") / 10_000 * 20.0) < 1e-9
     sent = json.loads(t.calls[0]["body"])
-    assert sent["target_language_code"] == "hi-IN" and sent["text"] == "नमस्ते"
+    assert sent["language_code"] == "hi-IN" and sent["text"] == "नमस्ते"
 
 
 def test_chat_parses_openai_style_response():
     t = FakeTransport({"/v1/chat/completions": (200, {
-        "choices": [{"message": {"content": "eta"}}], "usage": {"total_tokens": 42}})})
+        "choices": [{"message": {"content": "eta"}}],
+        "usage": {"prompt_tokens": 30, "completion_tokens": 12, "total_tokens": 42}})})
     r = SarvamClient(CFG, t).chat([{"role": "user", "content": "x"}])
     assert r.text == "eta" and r.tokens == 42
-    assert json.loads(t.calls[0]["body"])["temperature"] == 0
+    assert abs(r.cost_inr - (30 * 15.0 + 12 * 60.0) / 1_000_000) < 1e-12
+    sent = json.loads(t.calls[0]["body"])
+    assert sent["temperature"] == 0 and sent["model"] == "sarvam-105b"
+    assert "reasoning_effort" in sent and sent["reasoning_effort"] is None
 
 
 def test_http_errors_and_bad_input():
@@ -68,3 +72,13 @@ def test_config_from_env():
     assert cfg.api_key == "k" and cfg.base_url == "http://x"
     assert cfg.cost_guard_inr_per_driver_day == 3.5
     assert cfg.speaker_for("kn") == "meera"
+
+
+def test_default_speakers_are_per_language_and_overridable():
+    cfg = VoiceConfig()
+    assert cfg.speaker_for("kn") == "chaitra_kn_conversation"
+    assert cfg.speaker_for("hi") == "ritu_hi_conversation"
+    assert cfg.speaker_for("ta") == cfg.tts_speakers["default"]
+    cfg = VoiceConfig.from_env({"SARVAM_TTS_SPEAKER_KN": "chetan_kn_conversation"})
+    assert cfg.speaker_for("kn") == "chetan_kn_conversation"
+    assert cfg.speaker_for("hi") == "ritu_hi_conversation"

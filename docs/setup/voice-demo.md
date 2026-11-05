@@ -62,9 +62,9 @@ cost; never audio).
 cp .env.example .env
 ```
 
-Edit `.env` and set `SARVAM_API_KEY=...`. **Before trusting cost numbers**,
-check the model names and prices in `voice/config.py` against docs.sarvam.ai
-(they were written without access to the docs) and override them in `.env`.
+Edit `.env` and set `SARVAM_API_KEY=...`. The model names, voices and prices
+in `voice/config.py` were checked against docs.sarvam.ai on 2026-11-05 (see
+`docs/decisions.md` 0006). If Sarvam changes them, override them in `.env`.
 
 Typed questions, spoken answers (saved to `voice/out/answer.wav`):
 
