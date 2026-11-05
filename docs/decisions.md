@@ -55,6 +55,14 @@ tests then use the exact shape the app sends. `tools/gpx_to_trace.py` converts
 GPSLogger exports (stdlib only) and trims 200 m off each end for privacy. The
 expected-events format needs Aryaman's sign-off, since he owns the replay tests.
 
+### 0008 — Driver app in Kotlin, logic in a pure-Kotlin `core` module  (2026-11-05, Ram, status: proposed)
+The app is Android-only, and its hard parts (a GPS foreground service, the mic
+for push-to-talk, audio focus for alerts while driving) are native Android APIs,
+so Kotlin is simpler than Flutter plus plugins. All decisions (tracking gate,
+offline buffer, upload retries, event sequencing, push-to-talk) live in
+`app/core`, a plain Kotlin module tested on the JVM; the Android module stays thin.
+Revisit if an iOS app becomes a requirement.
+
 ## Dependencies
 
 | Package | Area | Reason |
@@ -62,3 +70,5 @@ expected-events format needs Aryaman's sign-off, since he owns the replay tests.
 | PyYAML | voice | Parse `voice/templates/<lang>.yaml`; YAML is readable for non-programmer reviewers of translations. |
 | pytest | tests | Standard Python test runner; replay and unit tests. |
 | sounddevice (optional, not in pyproject) | voice demo | Microphone capture for the laptop push-to-talk demo only; the app records audio on Android. |
+| kotlinx-serialization-json | app | JSON for the gps and events contracts; the official Kotlin library, no reflection, works the same on JVM and Android. |
+| kotlin-test (JUnit 5) | app tests | Standard Kotlin test assertions on the JVM. |
