@@ -23,6 +23,8 @@ voice/cache/
 
 # Android / Node
 app/build/
+app/*/build/
+app/.kotlin/
 app/.gradle/
 dashboard/node_modules/
 dashboard/dist/
