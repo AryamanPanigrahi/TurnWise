@@ -1,0 +1,77 @@
+# English templates. Reference language for reviewers of kn/hi translations.
+lang: en
+version: 1
+review_status: draft
+
+# Intent keywords. Matching is per token, by prefix, so "turning" matches "turn".
+# Multi-word phrases must appear as consecutive tokens. Order in the router,
+# not here, decides priority.
+intents:
+  am_i_wrong: ["wrong", "wrong way", "am i lost", "right road", "correct road", "off route"]
+  which_branch: ["flyover", "service road", "underpass", "bridge", "which lane", "upper road", "lower road"]
+  left_or_right: ["left", "right side", "turn right", "go right", "straight", "which side", "which turn"]
+  distance_to_next: ["how far", "distance", "how many metres", "how many meters", "next turn"]
+  eta: ["how long", "eta", "when will", "reach", "arrival", "time left"]
+  repeat: ["repeat", "again", "say that", "what did you say", "pardon"]
+
+# Slot values the router extracts from the question (used for which_branch).
+slots:
+  branch:
+    flyover: ["flyover", "bridge", "upper road"]
+    service_road: ["service road", "lower road", "below"]
+    underpass: ["underpass", "tunnel"]
+
+vocab:
+  units:
+    m: "{n} metres"
+    km: "{n} kilometres"
+    min: "{n} minutes"
+    hour: "{n} hours"
+    hour_min: "{h} {m}"
+  branch:
+    flyover: "the flyover"
+    service_road: "the service road"
+    underpass: "the underpass"
+    surface: "the surface road"
+    left_fork: "the left fork"
+    right_fork: "the right fork"
+  direction:
+    left: "left"
+    right: "right"
+  maneuver:
+    turn_left: "left turn"
+    turn_right: "right turn"
+    keep_left: "keep-left"
+    keep_right: "keep-right"
+    u_turn: "U-turn"
+    roundabout: "roundabout"
+    arrive: "stop"
+  recovery:
+    u_turn: "take a U-turn"
+    turn_left: "turn left"
+    turn_right: "turn right"
+    continue: "continue straight"
+    reroute: "follow the new route on screen"
+
+# Answers keyed by answer_key from POST /v1/ask. Lookup tries the full key
+# (e.g. "am_i_wrong.on_route") first, then the part before the dot.
+# A value may be a string or {default, with_landmark}.
+answers:
+  which_branch:
+    default: "Take {branch}, {distance} ahead."
+    with_landmark: "Take {branch} near {landmark}, {distance} ahead."
+  left_or_right:
+    default: "Turn {direction} in {distance}."
+    with_landmark: "Turn {direction} in {distance}, near {landmark}."
+  left_or_right.straight: "Go straight for {distance}."
+  distance_to_next: "Next {maneuver} is in {distance}."
+  am_i_wrong.on_route: "You are on the right road."
+  am_i_wrong.off_route: "You are off route. In {distance}, {recovery}."
+  eta: "{remaining} left, about {eta}."
+  not_sure: "I'm not sure, follow the screen."
+  please_repeat: "Please say that again."
+
+# Wrong-way alerts: templated only, never the AI model (CLAUDE.md #2).
+alerts:
+  off_route: "Wrong way! In {distance}, {recovery}."
+  back_on_route: "You are back on route."
