@@ -80,3 +80,21 @@ OpenStreetMap with attribution. The real dashboard's stack is decided in Week 7.
 | kotlin-test (JUnit 5) | app tests | Standard Kotlin test assertions on the JVM. |
 
 | Leaflet 1.9.4 (CDN, pinned with SRI) | dashboard | The standard small library for OSM maps; no build step needed. |
+
+### 0010 — Geocoding: free OSM-based now, paid provider once fleets pay  (2026-11-05, Aryaman, status: proposed)
+Valhalla only takes coordinates, so stop addresses are geocoded server-side in
+`backend/` when a stop is created, then stored as lat/lon. Dispatchers confirm
+the resolved pin on the dashboard map before the trip starts.
+- Now: self-hosted Nominatim or Photon on the same OSM data (free, ODbL-compatible).
+- Later (paying fleets): MapmyIndia/Mappls for better Indian address coverage.
+  Before switching, read their terms on storing geocoded results and on mixing
+  their data with OSM-derived data (CLAUDE.md rule 6).
+- Design rule: one small interface, `geocode(text) -> candidates`, so changing
+  provider touches one module.
+- Risk: OSM address coverage in India is patchy; include geocoding quality in the
+  OSM coverage audit of pilot routes.
+
+### 0011 — Project name is TurnWise  (2026-11-05, Aryaman, status: accepted)
+Replaces the working name "Daari". Trademark, Play Store and domain checks are
+pending. Some files still say `daari` (pyproject name, `.env.example` database
+names, the contract schema `$id`) and should be renamed together.

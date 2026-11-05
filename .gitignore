@@ -37,3 +37,4 @@ dashboard/dist/
 # Voice demo outputs
 voice/out/
 voice/logs/
+routing/data-archive/
