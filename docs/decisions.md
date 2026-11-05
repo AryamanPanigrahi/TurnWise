@@ -26,6 +26,13 @@ The 6 templated intents are matched with per-language keyword rules (pure Python
 no network). This keeps the templated path inside the 1.5 s budget and makes it
 testable offline. Unmatched utterances go to the Sarvam LLM fallback (later).
 
+### 0004 — Sarvam clients use stdlib urllib behind a Transport interface  (2026-11-05, Ram, status: proposed)
+No HTTP dependency yet: the voice loop is synchronous push-to-talk, so urllib is
+enough, and tests inject a fake transport (no network). If the backend needs
+async calls from FastAPI, swap in an httpx transport — the interface stays.
+Model names, endpoints and prices are UNVERIFIED (docs.sarvam.ai was not
+reachable when written) and are overridable from `.env`.
+
 ## Dependencies
 
 | Package | Area | Reason |
