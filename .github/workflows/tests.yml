@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.11"   # the stack's version (CLAUDE.md)
           cache: pip
-      - run: pip install -e ".[dev]"
+      - run: pip install -e ".[dev,backend]"
       - run: pytest -q
       - name: Check recorded traces
         run: python -m tools.trace_check
