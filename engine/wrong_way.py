@@ -76,6 +76,7 @@ class WrongWayDetector:
             self._cum.append(self._cum[-1] + haversine_m(a, b))
 
         self.off_route = False
+        self.progress_m: float | None = None   # distance along the route at the last on-route fix
         self._last_along: float | None = None
         self._last_t: float | None = None
         # persistence trackers: (time first seen, number of fixes) or None
@@ -142,7 +143,7 @@ class WrongWayDetector:
 
         if reason is None:
             if not far:
-                self._last_along = proj.along_m   # only trust progress while near the route
+                self._last_along = self.progress_m = proj.along_m   # only trust progress near the route
             return []
 
         self.off_route = True
@@ -167,7 +168,7 @@ class WrongWayDetector:
             self.off_route = False
             self._near = None
             self._far = self._wrong_heading = None
-            self._last_along = proj.along_m
+            self._last_along = self.progress_m = proj.along_m
             return [Event("back_on_route", fix["ts"], {})]
         return []
 
