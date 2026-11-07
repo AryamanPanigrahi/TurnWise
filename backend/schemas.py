@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import uuid
 from datetime import datetime
 from typing import Any, Literal
 
@@ -67,6 +68,8 @@ class Place(_Base):
 class TripCreate(_Base):
     origin: Place
     destination: Place
+    driver_id: uuid.UUID | None = None      # must belong to the server's fleet (when a database is configured)
+    vehicle_id: uuid.UUID | None = None
 
 
 class TripCreated(BaseModel):

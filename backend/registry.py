@@ -16,6 +16,7 @@ import secrets
 from collections import deque
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
+from typing import Awaitable, Callable
 
 from engine.trip import TripEngine
 from engine.wrong_way import Event
@@ -55,10 +56,15 @@ class TripState:
             self._seen.discard(self._seen_order.popleft())
 
 
+# Called AFTER an event has been published to listeners: (trip_id, message, the GPS fix that caused it).
+EventSink = Callable[[str, dict, dict], Awaitable[None]]
+
+
 class TripRegistry:
-    def __init__(self, event_backlog: int = 500):
+    def __init__(self, event_backlog: int = 500, sink: EventSink | None = None):
         self._trips: dict[str, TripState] = {}
         self._backlog = event_backlog
+        self.sink = sink            # e.g. the database writer; must not raise
 
     # -- lifecycle -------------------------------------------------------------------
     def create(self, engine: TripEngine) -> TripState:
@@ -69,6 +75,10 @@ class TripRegistry:
 
     def get(self, trip_id: str) -> TripState | None:
         return self._trips.get(trip_id)
+
+    def discard(self, trip_id: str) -> None:
+        """Forget a trip that never really started (e.g. it could not be recorded)."""
+        self._trips.pop(trip_id, None)
 
     def end(self, state: TripState) -> None:
         """Stop tracking: no more fixes accepted, listeners told to disconnect."""
@@ -93,7 +103,9 @@ class TripRegistry:
                     continue
                 state.last_t = t
                 for event in state.engine.update(p):
-                    self.publish(state, event)
+                    message = self.publish(state, event)
+                    if self.sink is not None:           # after publishing: alerts never wait for storage
+                        await self.sink(state.trip_id, message, p)
         return result
 
     # -- events out -------------------------------------------------------------------

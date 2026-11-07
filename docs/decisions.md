@@ -119,3 +119,18 @@ bounded in-memory log; ping/pong is enough, no `heartbeat` event yet.
 ### 0014 — Backend dependencies  (2026-11-07, Aryaman, status: proposed)
 FastAPI (the framework named in CLAUDE.md; also brings pydantic for request validation), uvicorn[standard]
 (ASGI server, `websockets` included for the events socket), httpx (FastAPI's test client, dev only).
+
+### 0015 — Database: PostgreSQL 16 + PostGIS, SQLAlchemy 2 async, Alembic  (2026-11-07, Aryaman, status: proposed)
+Trips, stops, drivers, vehicles and the deviation log live in PostgreSQL (`backend/models.py`), with PostGIS
+geometry for the planned route, stops and deviation locations so the dashboard heatmap is a SQL query.
+Every customer-owned row has `fleet_id`; queries are scoped by it. Migrations are Alembic
+(`backend/migrations/`); a test fails if the models and migrations drift apart, and Alembic only ever touches
+tables we define (the PostGIS image ships a US geocoder we must not drop). Live state stays in memory
+(`TripRegistry`); the database is the record. Failure policy: a new trip is refused (503) if it cannot be
+recorded, but alerts never wait on the database and database errors while recording events are logged, not
+raised. Deviations are timed by the device's GPS clock; a trip's end uses the server clock, and an open
+episode closes at the last fix. Dev uses host port 5433 (5432 is often taken) and `127.0.0.1`, not `localhost`
+(Windows tries IPv6 first and each connection then waits for a timeout: tests took 74 s instead of 5 s).
+Dependencies: sqlalchemy[asyncio] (the ORM named in CLAUDE.md), asyncpg (its async PostgreSQL driver),
+alembic (schema migrations), geoalchemy2 (PostGIS column types).
+Not yet: consent enforcement, the 90-day GPS retention job, encryption at rest, the audit log.

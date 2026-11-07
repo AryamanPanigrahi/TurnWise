@@ -19,11 +19,15 @@ from __future__ import annotations
 
 import asyncio
 import secrets
+from contextlib import asynccontextmanager
+from datetime import datetime, timezone
 from typing import Callable
 
 from fastapi import Depends, FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect
 from fastapi.concurrency import run_in_threadpool
 
+from backend.db import make_engine, make_session_factory
+from backend.persistence import TripPersistence, UnknownReference
 from backend.registry import TripRegistry, TripState
 from backend.schemas import (AskRequest, AskResponse, GpsAccepted, GpsBatch, TripCreate, TripCreated)
 from backend.settings import Settings
@@ -40,7 +44,8 @@ def _authorized(header: str | None, token: str) -> bool:
 
 
 def create_app(settings: Settings | None = None, route_provider: RouteProvider | None = None,
-               registry: TripRegistry | None = None) -> FastAPI:
+               registry: TripRegistry | None = None, persistence: TripPersistence | None = None,
+               on_shutdown: Callable[[], object] | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
     if not settings.api_token:
         raise RuntimeError("TURNWISE_API_TOKEN is not set; refusing to start an open server")
@@ -48,8 +53,18 @@ def create_app(settings: Settings | None = None, route_provider: RouteProvider |
         transport = http_transport(settings.valhalla_url)
         route_provider = lambda origin, dest: fetch_bundle(transport, origin, dest)  # noqa: E731
 
-    app = FastAPI(title="TurnWise", version="0.1")
+    @asynccontextmanager
+    async def lifespan(_: FastAPI):
+        if persistence is not None:
+            await persistence.startup()                     # make sure the fleet row exists
+        yield
+        if on_shutdown is not None:
+            await on_shutdown()
+
+    app = FastAPI(title="TurnWise", version="0.1", lifespan=lifespan)
     app.state.registry = registry or TripRegistry(settings.event_backlog)
+    if persistence is not None:
+        app.state.registry.sink = persistence.on_event
 
     def require_auth(request: Request) -> None:
         if not _authorized(request.headers.get("authorization"), settings.api_token):
@@ -77,11 +92,26 @@ def create_app(settings: Settings | None = None, route_provider: RouteProvider |
         except Exception:                      # routing service down, no route found, ...
             raise HTTPException(502, "could not plan a route") from None
         state = app.state.registry.create(engine)
+        if persistence is not None:
+            try:
+                await persistence.trip_created(
+                    trip_id=state.trip_id, route=engine.route, route_length_m=engine.length_m,
+                    started_at=datetime.now(timezone.utc), driver_id=body.driver_id, vehicle_id=body.vehicle_id)
+            except UnknownReference as missing:
+                app.state.registry.discard(state.trip_id)
+                raise HTTPException(422, f"unknown {missing} for this fleet") from None
+            except Exception:                  # database down: do not start a trip we cannot record
+                app.state.registry.discard(state.trip_id)
+                raise HTTPException(503, "could not record the trip") from None
         return TripCreated(trip_id=state.trip_id, length_m=engine.length_m, decision_points=len(engine.points))
 
     @app.post("/v1/trips/{trip_id}/end", status_code=204, dependencies=[Depends(require_auth)])
     async def end_trip(trip_id: str):
-        app.state.registry.end(active_trip(trip_id))
+        state = active_trip(trip_id)
+        app.state.registry.end(state)
+        if persistence is not None:
+            last_fix = datetime.fromtimestamp(state.last_t, timezone.utc) if state.last_t else None
+            await persistence.trip_ended(trip_id, datetime.now(timezone.utc), last_fix)
 
     @app.post("/v1/gps", status_code=202, response_model=GpsAccepted, dependencies=[Depends(require_auth)])
     async def ingest_gps(batch: GpsBatch):
@@ -130,4 +160,9 @@ def create_app(settings: Settings | None = None, route_provider: RouteProvider |
 
 def app_from_env() -> FastAPI:
     """Entry point for `uvicorn backend.app:app_from_env --factory`."""
-    return create_app()
+    settings = Settings.from_env()
+    if not settings.database_url:
+        return create_app(settings)            # no DATABASE_URL: trips live in memory only
+    engine = make_engine(settings.database_url)
+    persistence = TripPersistence(make_session_factory(engine), settings.fleet_name)
+    return create_app(settings, persistence=persistence, on_shutdown=engine.dispose)

@@ -160,7 +160,8 @@ docs/         decisions (ADRs), setup notes written as I learn each step
 ```bash
 # routing: see routing/README.md (download + clip OSM extract, build tiles, run Valhalla in Docker)
 #          docker start valhalla   |   docker stop valhalla
-# backend: docker compose up -d db redis ; alembic upgrade head ; uvicorn backend.main:app --reload
+# backend: docker compose up -d db ; alembic upgrade head      (needs .env, see .env.example; DB on port 5433)
+#          uvicorn backend.app:app_from_env --factory --reload  (needs TURNWISE_API_TOKEN, optional DATABASE_URL)
 # tests:   pytest -q   (replay tests use traces/)
 ```
 
