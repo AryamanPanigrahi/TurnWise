@@ -69,6 +69,14 @@ recorded drives: one HTML page plus a small pure-JS module, served with
 `python -m http.server`, no build step and no npm packages. Map tiles come from
 OpenStreetMap with attribution. The real dashboard's stack is decided in Week 7.
 
+### 0010 — CI runs every test suite on each PR  (2026-11-05, Ram, status: proposed)
+GitHub Actions (`.github/workflows/tests.yml`) runs pytest plus `tools.trace_check`,
+the Kotlin `app/core` tests and the dashboard tests on every pull request, so a
+reviewer sees green or red before reading the diff. Each job skips itself until
+its folder exists. Ram's side also adopts the TurnWise name (package name, demo
+banner, database names in `.env.example`); the contract schema `$id` is left for
+both founders to change together.
+
 ## Dependencies
 
 | Package | Area | Reason |
@@ -81,7 +89,7 @@ OpenStreetMap with attribution. The real dashboard's stack is decided in Week 7.
 
 | Leaflet 1.9.4 (CDN, pinned with SRI) | dashboard | The standard small library for OSM maps; no build step needed. |
 
-### 0010 — Geocoding: free OSM-based now, paid provider once fleets pay  (2026-11-05, Aryaman, status: proposed)
+### 0011 — Geocoding: free OSM-based now, paid provider once fleets pay  (2026-11-05, Aryaman, status: proposed)
 Valhalla only takes coordinates, so stop addresses are geocoded server-side in
 `backend/` when a stop is created, then stored as lat/lon. Dispatchers confirm
 the resolved pin on the dashboard map before the trip starts.
@@ -94,12 +102,12 @@ the resolved pin on the dashboard map before the trip starts.
 - Risk: OSM address coverage in India is patchy; include geocoding quality in the
   OSM coverage audit of pilot routes.
 
-### 0011 — Project name is TurnWise  (2026-11-05, Aryaman, status: accepted)
+### 0012 — Project name is TurnWise  (2026-11-05, Aryaman, status: accepted)
 Replaces the working name "Daari". Trademark, Play Store and domain checks are
 pending. Some files still say `daari` (pyproject name, `.env.example` database
 names, the contract schema `$id`) and should be renamed together.
 
-### 0012 — Backend: FastAPI, in-memory trips first, shared bearer token  (2026-11-07, Aryaman, status: proposed)
+### 0013 — Backend: FastAPI, in-memory trips first, shared bearer token  (2026-11-07, Aryaman, status: proposed)
 `backend/` implements the contracts (`POST /v1/gps`, `WS /v1/trips/{id}/events`, `POST /v1/ask`) plus
 `POST /v1/trips` and `POST /v1/trips/{id}/end`. Live trips sit behind `TripRegistry` (in memory), which is
 the seam for Redis later. Raw GPS is not stored (DPDP): only engine state, fix times and the event log.
@@ -108,6 +116,6 @@ for per-driver JWTs, roles and consent checks, which come with the security work
 contract's open question: the events socket accepts `?last_seq=N` and replays missed events from a
 bounded in-memory log; ping/pong is enough, no `heartbeat` event yet.
 
-### 0013 — Backend dependencies  (2026-11-07, Aryaman, status: proposed)
+### 0014 — Backend dependencies  (2026-11-07, Aryaman, status: proposed)
 FastAPI (the framework named in CLAUDE.md; also brings pydantic for request validation), uvicorn[standard]
 (ASGI server, `websockets` included for the events socket), httpx (FastAPI's test client, dev only).

@@ -131,7 +131,7 @@ def main(argv: list[str] | None = None) -> None:
     if args.wav:
         show(pipeline.handle_audio(args.wav.read_bytes(), **ids))
         return
-    print(f"Daari voice demo ({args.lang}). Ctrl+C to quit. "
+    print(f"TurnWise voice demo ({args.lang}). Ctrl+C to quit. "
           + ("Enter to talk." if args.mic else "Type a question."))
     try:
         while True:
