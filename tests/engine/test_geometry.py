@@ -23,7 +23,7 @@ def test_haversine_zero_and_symmetric():
 
 @pytest.mark.parametrize(
     "b, expected",
-    [((13.0, 77.0), 0), ((12.0, 77.0), 180), ((12.0, 77.5), 90), ((12.0, 76.5), 270)],
+    [((13.0, 77.0), 0), ((11.0, 77.0), 180), ((12.0, 77.5), 90), ((12.0, 76.5), 270)],
 )
 def test_bearing_cardinal_directions(b, expected):
     assert heading_diff_deg(bearing_deg((12.0, 77.0), b), expected) < 0.5
