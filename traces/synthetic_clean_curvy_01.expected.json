@@ -1,0 +1,6 @@
+{
+  "trace": "synthetic_clean_curvy_01.jsonl",
+  "clean": true,
+  "notes": "S-bends with 60 degree turns; heading changes a lot but the car stays on the route.",
+  "events": []
+}

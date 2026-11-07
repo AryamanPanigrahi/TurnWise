@@ -1,0 +1,12 @@
+{
+  "trace": "synthetic_fork_01.jsonl",
+  "clean": false,
+  "notes": "Took the right branch of a shallow fork at 1 km.",
+  "events": [
+    {
+      "event": "off_route",
+      "ts": "2026-11-07T04:31:46.000Z",
+      "note": "true position > 40 m from the planned route"
+    }
+  ]
+}

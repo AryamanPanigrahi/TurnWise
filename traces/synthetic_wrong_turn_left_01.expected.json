@@ -1,0 +1,12 @@
+{
+  "trace": "synthetic_wrong_turn_left_01.jsonl",
+  "clean": false,
+  "notes": "Turned left (north) at 1 km instead of going straight.",
+  "events": [
+    {
+      "event": "off_route",
+      "ts": "2026-11-07T04:31:44.000Z",
+      "note": "true position > 40 m from the planned route"
+    }
+  ]
+}

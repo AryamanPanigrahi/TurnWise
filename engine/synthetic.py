@@ -105,7 +105,7 @@ def drive(
             "lat": round(noisy[0], 6),
             "lon": round(noisy[1], 6),
             "speed": round(max(0.0, speed_mps + rng.gauss(0.0, 0.3)), 2),
-            "heading": round((brg + rng.gauss(0.0, heading_noise_deg)) % 360.0, 1),
+            "heading": round(brg + rng.gauss(0.0, heading_noise_deg), 1) % 360.0,  # round first: 359.96 -> 360.0 is out of range
             "accuracy": accuracy,
         })
     return Drive(rows=rows, truth=truth)

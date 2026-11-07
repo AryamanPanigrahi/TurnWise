@@ -55,7 +55,7 @@ class Event:
     data: dict = field(default_factory=dict)
 
 
-def _parse_ts(raw: str) -> float:
+def parse_ts(raw: str) -> float:
     s = raw.strip()
     if s.endswith("Z"):
         s = s[:-1] + "+00:00"
@@ -99,7 +99,7 @@ class WrongWayDetector:
     def update(self, fix: dict) -> list[Event]:
         """Feed one GPS fix (a POST /v1/gps point). Returns events it caused (0 or 1)."""
         cfg = self.cfg
-        t = _parse_ts(fix["ts"])
+        t = parse_ts(fix["ts"])
         if self._last_t is not None and t - self._last_t > cfg.gap_reset_s:
             self._last_along = None
         self._last_t = t
