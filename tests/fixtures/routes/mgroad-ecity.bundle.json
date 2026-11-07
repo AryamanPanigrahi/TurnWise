@@ -1,0 +1,3862 @@
+{
+ "source": "valhalla",
+ "route": [
+  [
+   12.975644,
+   77.606086
+  ],
+  [
+   12.975312,
+   77.607443
+  ],
+  [
+   12.975227,
+   77.607786
+  ],
+  [
+   12.975216,
+   77.607832
+  ],
+  [
+   12.975185,
+   77.607965
+  ],
+  [
+   12.975154,
+   77.608078
+  ],
+  [
+   12.975057,
+   77.608042
+  ],
+  [
+   12.974956,
+   77.607925
+  ],
+  [
+   12.974327,
+   77.607733
+  ],
+  [
+   12.974294,
+   77.607723
+  ],
+  [
+   12.974255,
+   77.607711
+  ],
+  [
+   12.973598,
+   77.607518
+  ],
+  [
+   12.973069,
+   77.60733
+  ],
+  [
+   12.972921,
+   77.607276
+  ],
+  [
+   12.972533,
+   77.607146
+  ],
+  [
+   12.972331,
+   77.607082
+  ],
+  [
+   12.972281,
+   77.607073
+  ],
+  [
+   12.97218,
+   77.607053
+  ],
+  [
+   12.9721,
+   77.607044
+  ],
+  [
+   12.97207,
+   77.607042
+  ],
+  [
+   12.971963,
+   77.607038
+  ],
+  [
+   12.971927,
+   77.607044
+  ],
+  [
+   12.971847,
+   77.607075
+  ],
+  [
+   12.971719,
+   77.607084
+  ],
+  [
+   12.971539,
+   77.607053
+  ],
+  [
+   12.971451,
+   77.607039
+  ],
+  [
+   12.971393,
+   77.607023
+  ],
+  [
+   12.971303,
+   77.607
+  ],
+  [
+   12.97125,
+   77.606985
+  ],
+  [
+   12.971093,
+   77.60694
+  ],
+  [
+   12.970979,
+   77.606909
+  ],
+  [
+   12.970943,
+   77.6069
+  ],
+  [
+   12.970259,
+   77.606683
+  ],
+  [
+   12.970137,
+   77.606643
+  ],
+  [
+   12.97007,
+   77.606621
+  ],
+  [
+   12.970025,
+   77.606608
+  ],
+  [
+   12.969969,
+   77.606591
+  ],
+  [
+   12.969687,
+   77.606509
+  ],
+  [
+   12.969532,
+   77.606457
+  ],
+  [
+   12.969287,
+   77.606381
+  ],
+  [
+   12.969229,
+   77.606363
+  ],
+  [
+   12.96875,
+   77.606261
+  ],
+  [
+   12.968562,
+   77.606245
+  ],
+  [
+   12.968474,
+   77.606242
+  ],
+  [
+   12.968346,
+   77.606226
+  ],
+  [
+   12.968299,
+   77.606224
+  ],
+  [
+   12.968146,
+   77.606276
+  ],
+  [
+   12.96812,
+   77.606285
+  ],
+  [
+   12.968028,
+   77.60632
+  ],
+  [
+   12.967816,
+   77.606404
+  ],
+  [
+   12.967711,
+   77.606436
+  ],
+  [
+   12.967276,
+   77.606568
+  ],
+  [
+   12.967118,
+   77.606615
+  ],
+  [
+   12.966883,
+   77.606672
+  ],
+  [
+   12.96638,
+   77.606789
+  ],
+  [
+   12.966325,
+   77.606804
+  ],
+  [
+   12.966239,
+   77.606824
+  ],
+  [
+   12.966133,
+   77.606844
+  ],
+  [
+   12.966033,
+   77.606854
+  ],
+  [
+   12.965953,
+   77.606857
+  ],
+  [
+   12.965789,
+   77.606863
+  ],
+  [
+   12.96571,
+   77.606864
+  ],
+  [
+   12.965455,
+   77.606867
+  ],
+  [
+   12.965273,
+   77.606861
+  ],
+  [
+   12.965129,
+   77.606855
+  ],
+  [
+   12.964969,
+   77.606837
+  ],
+  [
+   12.964757,
+   77.606804
+  ],
+  [
+   12.964604,
+   77.606796
+  ],
+  [
+   12.964394,
+   77.606784
+  ],
+  [
+   12.964147,
+   77.606772
+  ],
+  [
+   12.964017,
+   77.606769
+  ],
+  [
+   12.96385,
+   77.606776
+  ],
+  [
+   12.96362,
+   77.606795
+  ],
+  [
+   12.963354,
+   77.6068
+  ],
+  [
+   12.963073,
+   77.606809
+  ],
+  [
+   12.962629,
+   77.606812
+  ],
+  [
+   12.962301,
+   77.606801
+  ],
+  [
+   12.962079,
+   77.606777
+  ],
+  [
+   12.961914,
+   77.606757
+  ],
+  [
+   12.961609,
+   77.606703
+  ],
+  [
+   12.961256,
+   77.606645
+  ],
+  [
+   12.960852,
+   77.606574
+  ],
+  [
+   12.960339,
+   77.606481
+  ],
+  [
+   12.959925,
+   77.606417
+  ],
+  [
+   12.959514,
+   77.606351
+  ],
+  [
+   12.959164,
+   77.606287
+  ],
+  [
+   12.958792,
+   77.606228
+  ],
+  [
+   12.958391,
+   77.60617
+  ],
+  [
+   12.958095,
+   77.606121
+  ],
+  [
+   12.958031,
+   77.60611
+  ],
+  [
+   12.957982,
+   77.606102
+  ],
+  [
+   12.957867,
+   77.606081
+  ],
+  [
+   12.957487,
+   77.606012
+  ],
+  [
+   12.956963,
+   77.605914
+  ],
+  [
+   12.955713,
+   77.605684
+  ],
+  [
+   12.955663,
+   77.605674
+  ],
+  [
+   12.955131,
+   77.605584
+  ],
+  [
+   12.954949,
+   77.605553
+  ],
+  [
+   12.954718,
+   77.605513
+  ],
+  [
+   12.954692,
+   77.605508
+  ],
+  [
+   12.954125,
+   77.605432
+  ],
+  [
+   12.953549,
+   77.605364
+  ],
+  [
+   12.953198,
+   77.605327
+  ],
+  [
+   12.952913,
+   77.605296
+  ],
+  [
+   12.952873,
+   77.605293
+  ],
+  [
+   12.952662,
+   77.605277
+  ],
+  [
+   12.952525,
+   77.605268
+  ],
+  [
+   12.952514,
+   77.605267
+  ],
+  [
+   12.952383,
+   77.605259
+  ],
+  [
+   12.952006,
+   77.605232
+  ],
+  [
+   12.951926,
+   77.605228
+  ],
+  [
+   12.951842,
+   77.605227
+  ],
+  [
+   12.951742,
+   77.605238
+  ],
+  [
+   12.951408,
+   77.605332
+  ],
+  [
+   12.950947,
+   77.6055
+  ],
+  [
+   12.950717,
+   77.605578
+  ],
+  [
+   12.950672,
+   77.605595
+  ],
+  [
+   12.950447,
+   77.605665
+  ],
+  [
+   12.950325,
+   77.605732
+  ],
+  [
+   12.950133,
+   77.605833
+  ],
+  [
+   12.949845,
+   77.60593
+  ],
+  [
+   12.949745,
+   77.605956
+  ],
+  [
+   12.949559,
+   77.605989
+  ],
+  [
+   12.949202,
+   77.60612
+  ],
+  [
+   12.948601,
+   77.6063
+  ],
+  [
+   12.948482,
+   77.606339
+  ],
+  [
+   12.946892,
+   77.606846
+  ],
+  [
+   12.946772,
+   77.606882
+  ],
+  [
+   12.946377,
+   77.606994
+  ],
+  [
+   12.946289,
+   77.607019
+  ],
+  [
+   12.945945,
+   77.607105
+  ],
+  [
+   12.945493,
+   77.607232
+  ],
+  [
+   12.945053,
+   77.60736
+  ],
+  [
+   12.944808,
+   77.607424
+  ],
+  [
+   12.94472,
+   77.607452
+  ],
+  [
+   12.944488,
+   77.607521
+  ],
+  [
+   12.944182,
+   77.607604
+  ],
+  [
+   12.944145,
+   77.607614
+  ],
+  [
+   12.944121,
+   77.60762
+  ],
+  [
+   12.944046,
+   77.607641
+  ],
+  [
+   12.944,
+   77.607655
+  ],
+  [
+   12.943921,
+   77.607678
+  ],
+  [
+   12.943729,
+   77.607736
+  ],
+  [
+   12.943219,
+   77.607886
+  ],
+  [
+   12.943057,
+   77.607935
+  ],
+  [
+   12.942717,
+   77.608033
+  ],
+  [
+   12.942561,
+   77.608087
+  ],
+  [
+   12.942412,
+   77.608139
+  ],
+  [
+   12.942273,
+   77.608189
+  ],
+  [
+   12.941984,
+   77.608325
+  ],
+  [
+   12.941186,
+   77.608748
+  ],
+  [
+   12.939897,
+   77.609433
+  ],
+  [
+   12.93908,
+   77.609866
+  ],
+  [
+   12.938782,
+   77.610025
+  ],
+  [
+   12.938376,
+   77.610255
+  ],
+  [
+   12.93828,
+   77.610305
+  ],
+  [
+   12.93763,
+   77.610643
+  ],
+  [
+   12.936907,
+   77.611019
+  ],
+  [
+   12.935902,
+   77.611579
+  ],
+  [
+   12.935719,
+   77.611672
+  ],
+  [
+   12.934928,
+   77.612106
+  ],
+  [
+   12.934539,
+   77.61232
+  ],
+  [
+   12.934522,
+   77.612329
+  ],
+  [
+   12.9345,
+   77.612342
+  ],
+  [
+   12.934455,
+   77.612366
+  ],
+  [
+   12.934367,
+   77.612411
+  ],
+  [
+   12.934327,
+   77.612434
+  ],
+  [
+   12.932465,
+   77.613441
+  ],
+  [
+   12.931948,
+   77.613712
+  ],
+  [
+   12.931827,
+   77.613776
+  ],
+  [
+   12.931655,
+   77.613866
+  ],
+  [
+   12.931341,
+   77.614045
+  ],
+  [
+   12.931146,
+   77.614169
+  ],
+  [
+   12.93075,
+   77.614386
+  ],
+  [
+   12.930215,
+   77.614731
+  ],
+  [
+   12.930174,
+   77.614757
+  ],
+  [
+   12.929986,
+   77.614874
+  ],
+  [
+   12.929869,
+   77.614948
+  ],
+  [
+   12.929752,
+   77.615034
+  ],
+  [
+   12.929621,
+   77.61513
+  ],
+  [
+   12.929571,
+   77.615166
+  ],
+  [
+   12.929392,
+   77.6153
+  ],
+  [
+   12.929187,
+   77.615423
+  ],
+  [
+   12.926252,
+   77.617174
+  ],
+  [
+   12.926037,
+   77.617282
+  ],
+  [
+   12.92583,
+   77.617384
+  ],
+  [
+   12.924747,
+   77.618063
+  ],
+  [
+   12.924461,
+   77.618233
+  ],
+  [
+   12.923999,
+   77.618501
+  ],
+  [
+   12.92345,
+   77.618885
+  ],
+  [
+   12.923277,
+   77.618993
+  ],
+  [
+   12.922746,
+   77.619322
+  ],
+  [
+   12.922403,
+   77.619541
+  ],
+  [
+   12.922018,
+   77.619793
+  ],
+  [
+   12.921345,
+   77.62021
+  ],
+  [
+   12.921313,
+   77.620231
+  ],
+  [
+   12.921275,
+   77.620254
+  ],
+  [
+   12.921249,
+   77.620271
+  ],
+  [
+   12.92121,
+   77.620296
+  ],
+  [
+   12.921081,
+   77.620374
+  ],
+  [
+   12.920783,
+   77.62054
+  ],
+  [
+   12.920505,
+   77.620695
+  ],
+  [
+   12.920451,
+   77.620725
+  ],
+  [
+   12.920417,
+   77.620747
+  ],
+  [
+   12.920231,
+   77.620865
+  ],
+  [
+   12.920159,
+   77.620906
+  ],
+  [
+   12.92006,
+   77.620985
+  ],
+  [
+   12.91952,
+   77.621354
+  ],
+  [
+   12.919447,
+   77.621405
+  ],
+  [
+   12.919277,
+   77.621486
+  ],
+  [
+   12.918664,
+   77.621936
+  ],
+  [
+   12.918593,
+   77.621982
+  ],
+  [
+   12.918044,
+   77.622339
+  ],
+  [
+   12.91714,
+   77.622892
+  ],
+  [
+   12.915119,
+   77.624045
+  ],
+  [
+   12.914811,
+   77.624226
+  ],
+  [
+   12.914519,
+   77.624392
+  ],
+  [
+   12.914074,
+   77.624659
+  ],
+  [
+   12.913232,
+   77.625171
+  ],
+  [
+   12.912941,
+   77.62535
+  ],
+  [
+   12.912629,
+   77.625544
+  ],
+  [
+   12.912128,
+   77.625854
+  ],
+  [
+   12.911717,
+   77.626108
+  ],
+  [
+   12.911445,
+   77.626277
+  ],
+  [
+   12.910585,
+   77.626809
+  ],
+  [
+   12.909699,
+   77.627357
+  ],
+  [
+   12.909319,
+   77.627561
+  ],
+  [
+   12.907937,
+   77.628405
+  ],
+  [
+   12.907659,
+   77.628574
+  ],
+  [
+   12.905999,
+   77.629598
+  ],
+  [
+   12.903089,
+   77.631398
+  ],
+  [
+   12.901403,
+   77.632434
+  ],
+  [
+   12.89694,
+   77.635167
+  ],
+  [
+   12.893,
+   77.637591
+  ],
+  [
+   12.890762,
+   77.638967
+  ],
+  [
+   12.888505,
+   77.640357
+  ],
+  [
+   12.886142,
+   77.641821
+  ],
+  [
+   12.885156,
+   77.642432
+  ],
+  [
+   12.884384,
+   77.64291
+  ],
+  [
+   12.884168,
+   77.643044
+  ],
+  [
+   12.882798,
+   77.643878
+  ],
+  [
+   12.881678,
+   77.644571
+  ],
+  [
+   12.879558,
+   77.645861
+  ],
+  [
+   12.878117,
+   77.646743
+  ],
+  [
+   12.877477,
+   77.64714
+  ],
+  [
+   12.876943,
+   77.647489
+  ],
+  [
+   12.876457,
+   77.647859
+  ],
+  [
+   12.875062,
+   77.649109
+  ],
+  [
+   12.874051,
+   77.650018
+  ],
+  [
+   12.873369,
+   77.650627
+  ],
+  [
+   12.872584,
+   77.65126
+  ],
+  [
+   12.871327,
+   77.652261
+  ],
+  [
+   12.868962,
+   77.654129
+  ],
+  [
+   12.868052,
+   77.65485
+  ],
+  [
+   12.866943,
+   77.655733
+  ],
+  [
+   12.862184,
+   77.659496
+  ],
+  [
+   12.861249,
+   77.660248
+  ],
+  [
+   12.860085,
+   77.661179
+  ],
+  [
+   12.857949,
+   77.662858
+  ],
+  [
+   12.857248,
+   77.663399
+  ],
+  [
+   12.855847,
+   77.664547
+  ],
+  [
+   12.854696,
+   77.665451
+  ],
+  [
+   12.853033,
+   77.666776
+  ],
+  [
+   12.851738,
+   77.667804
+  ],
+  [
+   12.850656,
+   77.668665
+  ],
+  [
+   12.849563,
+   77.669528
+  ],
+  [
+   12.84898,
+   77.669985
+  ],
+  [
+   12.848594,
+   77.670287
+  ],
+  [
+   12.848352,
+   77.670477
+  ],
+  [
+   12.848068,
+   77.670699
+  ],
+  [
+   12.847787,
+   77.670843
+  ],
+  [
+   12.847677,
+   77.670872
+  ],
+  [
+   12.847575,
+   77.67088
+  ],
+  [
+   12.847502,
+   77.670872
+  ],
+  [
+   12.847392,
+   77.670853
+  ],
+  [
+   12.847306,
+   77.670816
+  ],
+  [
+   12.847212,
+   77.670759
+  ],
+  [
+   12.847128,
+   77.670679
+  ],
+  [
+   12.847034,
+   77.670564
+  ],
+  [
+   12.846961,
+   77.670448
+  ],
+  [
+   12.846688,
+   77.669918
+  ],
+  [
+   12.846113,
+   77.668803
+  ],
+  [
+   12.845888,
+   77.668367
+  ],
+  [
+   12.845849,
+   77.668289
+  ],
+  [
+   12.84552,
+   77.667533
+  ],
+  [
+   12.845451,
+   77.667237
+  ],
+  [
+   12.845415,
+   77.666957
+  ],
+  [
+   12.845386,
+   77.666622
+  ],
+  [
+   12.845368,
+   77.666022
+  ],
+  [
+   12.845364,
+   77.665833
+  ],
+  [
+   12.845378,
+   77.665651
+  ],
+  [
+   12.845383,
+   77.665578
+  ],
+  [
+   12.845392,
+   77.665237
+  ],
+  [
+   12.845396,
+   77.664921
+  ],
+  [
+   12.845411,
+   77.663874
+  ],
+  [
+   12.845421,
+   77.663443
+  ],
+  [
+   12.845435,
+   77.662662
+  ],
+  [
+   12.845451,
+   77.661904
+  ],
+  [
+   12.845487,
+   77.661596
+  ],
+  [
+   12.845487,
+   77.661439
+  ],
+  [
+   12.845517,
+   77.661437
+  ],
+  [
+   12.845487,
+   77.661245
+  ],
+  [
+   12.845458,
+   77.661163
+  ],
+  [
+   12.845315,
+   77.660785
+  ],
+  [
+   12.845179,
+   77.660394
+  ],
+  [
+   12.845172,
+   77.66034
+  ],
+  [
+   12.845163,
+   77.66029
+  ],
+  [
+   12.845185,
+   77.66029
+  ],
+  [
+   12.845281,
+   77.660286
+  ],
+  [
+   12.845454,
+   77.660278
+  ],
+  [
+   12.845514,
+   77.660275
+  ],
+  [
+   12.845599,
+   77.660271
+  ]
+ ],
+ "length_m": 17852.0,
+ "maneuvers": [
+  {
+   "type": 3,
+   "begin_shape_index": 0,
+   "instruction": "Drive east on Mahatma Gandhi Road.",
+   "street_names": [
+    "Mahatma Gandhi Road"
+   ],
+   "length_m": 222.0
+  },
+  {
+   "type": 10,
+   "begin_shape_index": 5,
+   "instruction": "Turn right onto Brigade Road.",
+   "street_names": [
+    "Brigade Road"
+   ],
+   "length_m": 7948.0
+  },
+  {
+   "type": 23,
+   "begin_shape_index": 225,
+   "instruction": "Keep right to take Electronic City Flyover.",
+   "street_names": [
+    "Electronic City Flyover"
+   ],
+   "length_m": 9500.0
+  },
+  {
+   "type": 10,
+   "begin_shape_index": 299,
+   "instruction": "Turn right.",
+   "street_names": [],
+   "length_m": 3.0
+  },
+  {
+   "type": 15,
+   "begin_shape_index": 300,
+   "instruction": "Turn left onto 1st Cross Road.",
+   "street_names": [
+    "1st Cross Road"
+   ],
+   "length_m": 129.0
+  },
+  {
+   "type": 10,
+   "begin_shape_index": 306,
+   "instruction": "Turn right.",
+   "street_names": [],
+   "length_m": 48.0
+  },
+  {
+   "type": 4,
+   "begin_shape_index": 311,
+   "instruction": "You have arrived at your destination.",
+   "street_names": [],
+   "length_m": 0.0
+  }
+ ],
+ "edges": [
+  {
+   "begin_shape_index": 0,
+   "end_shape_index": 1,
+   "names": [
+    "Mahatma Gandhi Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1196514128,
+   "lane_count": 2,
+   "length_m": 151.0
+  },
+  {
+   "begin_shape_index": 1,
+   "end_shape_index": 3,
+   "names": [
+    "Mahatma Gandhi Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1151679464,
+   "lane_count": 2,
+   "length_m": 43.0
+  },
+  {
+   "begin_shape_index": 3,
+   "end_shape_index": 4,
+   "names": [
+    "Mahatma Gandhi Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1151679464,
+   "lane_count": 2,
+   "length_m": 15.0
+  },
+  {
+   "begin_shape_index": 4,
+   "end_shape_index": 5,
+   "names": [
+    "Mahatma Gandhi Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 147859357,
+   "lane_count": 1,
+   "length_m": 13.0
+  },
+  {
+   "begin_shape_index": 5,
+   "end_shape_index": 6,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1075317012,
+   "lane_count": 1,
+   "length_m": 11.0
+  },
+  {
+   "begin_shape_index": 6,
+   "end_shape_index": 7,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1125542418,
+   "lane_count": 1,
+   "length_m": 17.0
+  },
+  {
+   "begin_shape_index": 7,
+   "end_shape_index": 8,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1125542419,
+   "lane_count": 2,
+   "length_m": 73.0
+  },
+  {
+   "begin_shape_index": 8,
+   "end_shape_index": 9,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1125542419,
+   "lane_count": 2,
+   "length_m": 4.0
+  },
+  {
+   "begin_shape_index": 9,
+   "end_shape_index": 11,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1125542419,
+   "lane_count": 2,
+   "length_m": 81.0
+  },
+  {
+   "begin_shape_index": 11,
+   "end_shape_index": 12,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1125542419,
+   "lane_count": 2,
+   "length_m": 62.0
+  },
+  {
+   "begin_shape_index": 12,
+   "end_shape_index": 13,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1125542419,
+   "lane_count": 2,
+   "length_m": 18.0
+  },
+  {
+   "begin_shape_index": 13,
+   "end_shape_index": 15,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1125542419,
+   "lane_count": 2,
+   "length_m": 69.0
+  },
+  {
+   "begin_shape_index": 15,
+   "end_shape_index": 16,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1304119370,
+   "lane_count": 3,
+   "length_m": 6.0
+  },
+  {
+   "begin_shape_index": 16,
+   "end_shape_index": 19,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1304119370,
+   "lane_count": 3,
+   "length_m": 24.0
+  },
+  {
+   "begin_shape_index": 19,
+   "end_shape_index": 20,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1304119370,
+   "lane_count": 3,
+   "length_m": 12.0
+  },
+  {
+   "begin_shape_index": 20,
+   "end_shape_index": 21,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1304119370,
+   "lane_count": 3,
+   "length_m": 4.0
+  },
+  {
+   "begin_shape_index": 21,
+   "end_shape_index": 23,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 764406991,
+   "lane_count": 3,
+   "length_m": 24.0
+  },
+  {
+   "begin_shape_index": 23,
+   "end_shape_index": 26,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 764406991,
+   "lane_count": 3,
+   "length_m": 37.0
+  },
+  {
+   "begin_shape_index": 26,
+   "end_shape_index": 27,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 764406991,
+   "lane_count": 3,
+   "length_m": 10.0
+  },
+  {
+   "begin_shape_index": 27,
+   "end_shape_index": 28,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 6.0
+  },
+  {
+   "begin_shape_index": 28,
+   "end_shape_index": 29,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 18.0
+  },
+  {
+   "begin_shape_index": 29,
+   "end_shape_index": 30,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 13.0
+  },
+  {
+   "begin_shape_index": 30,
+   "end_shape_index": 31,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 4.0
+  },
+  {
+   "begin_shape_index": 31,
+   "end_shape_index": 32,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 80.0
+  },
+  {
+   "begin_shape_index": 32,
+   "end_shape_index": 33,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 14.0
+  },
+  {
+   "begin_shape_index": 33,
+   "end_shape_index": 34,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 8.0
+  },
+  {
+   "begin_shape_index": 34,
+   "end_shape_index": 35,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 5.0
+  },
+  {
+   "begin_shape_index": 35,
+   "end_shape_index": 36,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 6.0
+  },
+  {
+   "begin_shape_index": 36,
+   "end_shape_index": 37,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 32.0
+  },
+  {
+   "begin_shape_index": 37,
+   "end_shape_index": 39,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 47.0
+  },
+  {
+   "begin_shape_index": 39,
+   "end_shape_index": 40,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 7.0
+  },
+  {
+   "begin_shape_index": 40,
+   "end_shape_index": 41,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 54.0
+  },
+  {
+   "begin_shape_index": 41,
+   "end_shape_index": 43,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 23029284,
+   "lane_count": 3,
+   "length_m": 31.0
+  },
+  {
+   "begin_shape_index": 43,
+   "end_shape_index": 45,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1562167507,
+   "lane_count": 3,
+   "length_m": 20.0
+  },
+  {
+   "begin_shape_index": 45,
+   "end_shape_index": 46,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 239572011,
+   "lane_count": 3,
+   "length_m": 18.0
+  },
+  {
+   "begin_shape_index": 46,
+   "end_shape_index": 47,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 239572011,
+   "lane_count": 3,
+   "length_m": 3.0
+  },
+  {
+   "begin_shape_index": 47,
+   "end_shape_index": 49,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 239572011,
+   "lane_count": 3,
+   "length_m": 36.0
+  },
+  {
+   "begin_shape_index": 49,
+   "end_shape_index": 50,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 239572011,
+   "lane_count": 3,
+   "length_m": 12.0
+  },
+  {
+   "begin_shape_index": 50,
+   "end_shape_index": 55,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 239572011,
+   "lane_count": 3,
+   "length_m": 160.0
+  },
+  {
+   "begin_shape_index": 55,
+   "end_shape_index": 56,
+   "names": [
+    "Brigade Road"
+   ],
+   "use": "road",
+   "road_class": "secondary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1110166329,
+   "lane_count": 3,
+   "length_m": 10.0
+  },
+  {
+   "begin_shape_index": 56,
+   "end_shape_index": 57,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732606,
+   "lane_count": 3,
+   "length_m": 12.0
+  },
+  {
+   "begin_shape_index": 57,
+   "end_shape_index": 62,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732606,
+   "lane_count": 3,
+   "length_m": 76.0
+  },
+  {
+   "begin_shape_index": 62,
+   "end_shape_index": 64,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732610,
+   "lane_count": 2,
+   "length_m": 36.0
+  },
+  {
+   "begin_shape_index": 64,
+   "end_shape_index": 67,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732610,
+   "lane_count": 2,
+   "length_m": 59.0
+  },
+  {
+   "begin_shape_index": 67,
+   "end_shape_index": 68,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732610,
+   "lane_count": 2,
+   "length_m": 23.0
+  },
+  {
+   "begin_shape_index": 68,
+   "end_shape_index": 74,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732610,
+   "lane_count": 2,
+   "length_m": 146.0
+  },
+  {
+   "begin_shape_index": 74,
+   "end_shape_index": 85,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732610,
+   "lane_count": 2,
+   "length_m": 440.0
+  },
+  {
+   "begin_shape_index": 85,
+   "end_shape_index": 90,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509734444,
+   "lane_count": 2,
+   "length_m": 133.0
+  },
+  {
+   "begin_shape_index": 90,
+   "end_shape_index": 91,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732594,
+   "lane_count": 2,
+   "length_m": 13.0
+  },
+  {
+   "begin_shape_index": 91,
+   "end_shape_index": 92,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509734443,
+   "lane_count": 2,
+   "length_m": 43.0
+  },
+  {
+   "begin_shape_index": 92,
+   "end_shape_index": 94,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732595,
+   "lane_count": 2,
+   "length_m": 201.0
+  },
+  {
+   "begin_shape_index": 94,
+   "end_shape_index": 95,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732595,
+   "lane_count": 2,
+   "length_m": 6.0
+  },
+  {
+   "begin_shape_index": 95,
+   "end_shape_index": 96,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732595,
+   "lane_count": 2,
+   "length_m": 60.0
+  },
+  {
+   "begin_shape_index": 96,
+   "end_shape_index": 97,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732600,
+   "lane_count": 3,
+   "length_m": 20.0
+  },
+  {
+   "begin_shape_index": 97,
+   "end_shape_index": 98,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732600,
+   "lane_count": 3,
+   "length_m": 26.0
+  },
+  {
+   "begin_shape_index": 98,
+   "end_shape_index": 103,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732600,
+   "lane_count": 3,
+   "length_m": 202.0
+  },
+  {
+   "begin_shape_index": 103,
+   "end_shape_index": 104,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509734439,
+   "lane_count": 3,
+   "length_m": 4.0
+  },
+  {
+   "begin_shape_index": 104,
+   "end_shape_index": 105,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509734439,
+   "lane_count": 3,
+   "length_m": 24.0
+  },
+  {
+   "begin_shape_index": 105,
+   "end_shape_index": 106,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509734440,
+   "lane_count": 2,
+   "length_m": 15.0
+  },
+  {
+   "begin_shape_index": 106,
+   "end_shape_index": 107,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509734440,
+   "lane_count": 2,
+   "length_m": 1.0
+  },
+  {
+   "begin_shape_index": 107,
+   "end_shape_index": 108,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732602,
+   "lane_count": 2,
+   "length_m": 15.0
+  },
+  {
+   "begin_shape_index": 108,
+   "end_shape_index": 109,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732602,
+   "lane_count": 2,
+   "length_m": 42.0
+  },
+  {
+   "begin_shape_index": 109,
+   "end_shape_index": 110,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732602,
+   "lane_count": 2,
+   "length_m": 9.0
+  },
+  {
+   "begin_shape_index": 110,
+   "end_shape_index": 116,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732602,
+   "lane_count": 2,
+   "length_m": 146.0
+  },
+  {
+   "begin_shape_index": 116,
+   "end_shape_index": 118,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1509732602,
+   "lane_count": 2,
+   "length_m": 42.0
+  },
+  {
+   "begin_shape_index": 118,
+   "end_shape_index": 120,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154366,
+   "lane_count": 3,
+   "length_m": 58.0
+  },
+  {
+   "begin_shape_index": 120,
+   "end_shape_index": 121,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 11.0
+  },
+  {
+   "begin_shape_index": 121,
+   "end_shape_index": 124,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 133.0
+  },
+  {
+   "begin_shape_index": 124,
+   "end_shape_index": 125,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 14.0
+  },
+  {
+   "begin_shape_index": 125,
+   "end_shape_index": 126,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 185.0
+  },
+  {
+   "begin_shape_index": 126,
+   "end_shape_index": 127,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 14.0
+  },
+  {
+   "begin_shape_index": 127,
+   "end_shape_index": 129,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 56.0
+  },
+  {
+   "begin_shape_index": 129,
+   "end_shape_index": 130,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 39.0
+  },
+  {
+   "begin_shape_index": 130,
+   "end_shape_index": 132,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 103.0
+  },
+  {
+   "begin_shape_index": 132,
+   "end_shape_index": 133,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 430154367,
+   "lane_count": 3,
+   "length_m": 28.0
+  },
+  {
+   "begin_shape_index": 133,
+   "end_shape_index": 135,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1150895254,
+   "lane_count": 3,
+   "length_m": 37.0
+  },
+  {
+   "begin_shape_index": 135,
+   "end_shape_index": 137,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1150895254,
+   "lane_count": 3,
+   "length_m": 39.0
+  },
+  {
+   "begin_shape_index": 137,
+   "end_shape_index": 138,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1150895254,
+   "lane_count": 3,
+   "length_m": 3.0
+  },
+  {
+   "begin_shape_index": 138,
+   "end_shape_index": 139,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1391749538,
+   "lane_count": 3,
+   "length_m": 9.0
+  },
+  {
+   "begin_shape_index": 139,
+   "end_shape_index": 140,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247738,
+   "lane_count": 3,
+   "length_m": 5.0
+  },
+  {
+   "begin_shape_index": 140,
+   "end_shape_index": 141,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 9.0
+  },
+  {
+   "begin_shape_index": 141,
+   "end_shape_index": 142,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 22.0
+  },
+  {
+   "begin_shape_index": 142,
+   "end_shape_index": 143,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 59.0
+  },
+  {
+   "begin_shape_index": 143,
+   "end_shape_index": 148,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 110.0
+  },
+  {
+   "begin_shape_index": 148,
+   "end_shape_index": 149,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 35.0
+  },
+  {
+   "begin_shape_index": 149,
+   "end_shape_index": 150,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 100.0
+  },
+  {
+   "begin_shape_index": 150,
+   "end_shape_index": 152,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 263.0
+  },
+  {
+   "begin_shape_index": 152,
+   "end_shape_index": 153,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 37.0
+  },
+  {
+   "begin_shape_index": 153,
+   "end_shape_index": 154,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 52.0
+  },
+  {
+   "begin_shape_index": 154,
+   "end_shape_index": 155,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 12.0
+  },
+  {
+   "begin_shape_index": 155,
+   "end_shape_index": 156,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 81.0
+  },
+  {
+   "begin_shape_index": 156,
+   "end_shape_index": 157,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 90.0
+  },
+  {
+   "begin_shape_index": 157,
+   "end_shape_index": 158,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 127.0
+  },
+  {
+   "begin_shape_index": 158,
+   "end_shape_index": 159,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 23.0
+  },
+  {
+   "begin_shape_index": 159,
+   "end_shape_index": 163,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 154.0
+  },
+  {
+   "begin_shape_index": 163,
+   "end_shape_index": 164,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1307247737,
+   "lane_count": 3,
+   "length_m": 6.0
+  },
+  {
+   "begin_shape_index": 164,
+   "end_shape_index": 165,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 558769481,
+   "lane_count": 3,
+   "length_m": 11.0
+  },
+  {
+   "begin_shape_index": 165,
+   "end_shape_index": 166,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 558769486,
+   "lane_count": 3,
+   "length_m": 5.0
+  },
+  {
+   "begin_shape_index": 166,
+   "end_shape_index": 167,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 558769486,
+   "lane_count": 3,
+   "length_m": 234.0
+  },
+  {
+   "begin_shape_index": 167,
+   "end_shape_index": 169,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 558769486,
+   "lane_count": 3,
+   "length_m": 80.0
+  },
+  {
+   "begin_shape_index": 169,
+   "end_shape_index": 170,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1474602676,
+   "lane_count": 3,
+   "length_m": 22.0
+  },
+  {
+   "begin_shape_index": 170,
+   "end_shape_index": 171,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 363621124,
+   "lane_count": 3,
+   "length_m": 40.0
+  },
+  {
+   "begin_shape_index": 171,
+   "end_shape_index": 173,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 328835371,
+   "lane_count": 3,
+   "length_m": 75.0
+  },
+  {
+   "begin_shape_index": 173,
+   "end_shape_index": 175,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 328835371,
+   "lane_count": 3,
+   "length_m": 76.0
+  },
+  {
+   "begin_shape_index": 175,
+   "end_shape_index": 177,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 328835371,
+   "lane_count": 3,
+   "length_m": 40.0
+  },
+  {
+   "begin_shape_index": 177,
+   "end_shape_index": 179,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 638928399,
+   "lane_count": 3,
+   "length_m": 34.0
+  },
+  {
+   "begin_shape_index": 179,
+   "end_shape_index": 180,
+   "names": [
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1459499823,
+   "lane_count": 3,
+   "length_m": 7.0
+  },
+  {
+   "begin_shape_index": 180,
+   "end_shape_index": 182,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 160334705,
+   "lane_count": 3,
+   "length_m": 51.0
+  },
+  {
+   "begin_shape_index": 182,
+   "end_shape_index": 183,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 160334705,
+   "lane_count": 3,
+   "length_m": 378.0
+  },
+  {
+   "begin_shape_index": 183,
+   "end_shape_index": 184,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 160334705,
+   "lane_count": 3,
+   "length_m": 27.0
+  },
+  {
+   "begin_shape_index": 184,
+   "end_shape_index": 186,
+   "names": [
+    "Madiwala Underpass",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 133763760,
+   "lane_count": 2,
+   "length_m": 167.0
+  },
+  {
+   "begin_shape_index": 186,
+   "end_shape_index": 187,
+   "names": [
+    "Madiwala Underpass",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": true,
+   "toll": false,
+   "way_id": 148210030,
+   "lane_count": 2,
+   "length_m": 37.0
+  },
+  {
+   "begin_shape_index": 187,
+   "end_shape_index": 189,
+   "names": [
+    "Madiwala Underpass",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 148210028,
+   "lane_count": 2,
+   "length_m": 133.0
+  },
+  {
+   "begin_shape_index": 189,
+   "end_shape_index": 190,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 172853382,
+   "lane_count": 2,
+   "length_m": 22.0
+  },
+  {
+   "begin_shape_index": 190,
+   "end_shape_index": 191,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 172853382,
+   "lane_count": 2,
+   "length_m": 69.0
+  },
+  {
+   "begin_shape_index": 191,
+   "end_shape_index": 192,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 172853382,
+   "lane_count": 2,
+   "length_m": 45.0
+  },
+  {
+   "begin_shape_index": 192,
+   "end_shape_index": 193,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 172853382,
+   "lane_count": 2,
+   "length_m": 51.0
+  },
+  {
+   "begin_shape_index": 193,
+   "end_shape_index": 194,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 172853382,
+   "lane_count": 2,
+   "length_m": 88.0
+  },
+  {
+   "begin_shape_index": 194,
+   "end_shape_index": 196,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 172853382,
+   "lane_count": 2,
+   "length_m": 9.0
+  },
+  {
+   "begin_shape_index": 196,
+   "end_shape_index": 198,
+   "names": [
+    "Hosur Road",
+    "AH43"
+   ],
+   "use": "road",
+   "road_class": "primary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 172853382,
+   "lane_count": 2,
+   "length_m": 9.0
+  },
+  {
+   "begin_shape_index": 198,
+   "end_shape_index": 199,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1109968033,
+   "lane_count": 2,
+   "length_m": 17.0
+  },
+  {
+   "begin_shape_index": 199,
+   "end_shape_index": 200,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1148717038,
+   "lane_count": 2,
+   "length_m": 38.0
+  },
+  {
+   "begin_shape_index": 200,
+   "end_shape_index": 201,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1148717038,
+   "lane_count": 2,
+   "length_m": 35.0
+  },
+  {
+   "begin_shape_index": 201,
+   "end_shape_index": 203,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1148717038,
+   "lane_count": 2,
+   "length_m": 11.0
+  },
+  {
+   "begin_shape_index": 203,
+   "end_shape_index": 204,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1148717038,
+   "lane_count": 2,
+   "length_m": 24.0
+  },
+  {
+   "begin_shape_index": 204,
+   "end_shape_index": 206,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 40696223,
+   "lane_count": 2,
+   "length_m": 23.0
+  },
+  {
+   "begin_shape_index": 206,
+   "end_shape_index": 207,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 40696223,
+   "lane_count": 2,
+   "length_m": 72.0
+  },
+  {
+   "begin_shape_index": 207,
+   "end_shape_index": 208,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 40696223,
+   "lane_count": 2,
+   "length_m": 10.0
+  },
+  {
+   "begin_shape_index": 208,
+   "end_shape_index": 209,
+   "names": [
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1167293940,
+   "lane_count": 2,
+   "length_m": 21.0
+  },
+  {
+   "begin_shape_index": 209,
+   "end_shape_index": 210,
+   "names": [
+    "AH43",
+    "Silk Board Flyover"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1208112303,
+   "lane_count": 3,
+   "length_m": 84.0
+  },
+  {
+   "begin_shape_index": 210,
+   "end_shape_index": 214,
+   "names": [
+    "AH43",
+    "Silk Board Flyover",
+    "Sri Mahasharana Madiwala Machideva Flyover"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": true,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 40696221,
+   "lane_count": 3,
+   "length_m": 456.0
+  },
+  {
+   "begin_shape_index": 214,
+   "end_shape_index": 216,
+   "names": [
+    "NH44",
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 237025636,
+   "lane_count": 3,
+   "length_m": 77.0
+  },
+  {
+   "begin_shape_index": 216,
+   "end_shape_index": 217,
+   "names": [
+    "NH44",
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1416769967,
+   "lane_count": 3,
+   "length_m": 57.0
+  },
+  {
+   "begin_shape_index": 217,
+   "end_shape_index": 220,
+   "names": [
+    "NH44",
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 243897293,
+   "lane_count": 3,
+   "length_m": 187.0
+  },
+  {
+   "begin_shape_index": 220,
+   "end_shape_index": 221,
+   "names": [
+    "NH44",
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1196514116,
+   "lane_count": 3,
+   "length_m": 65.0
+  },
+  {
+   "begin_shape_index": 221,
+   "end_shape_index": 222,
+   "names": [
+    "NH44",
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1196514116,
+   "lane_count": 3,
+   "length_m": 53.0
+  },
+  {
+   "begin_shape_index": 222,
+   "end_shape_index": 224,
+   "names": [
+    "NH44",
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1196514116,
+   "lane_count": 3,
+   "length_m": 146.0
+  },
+  {
+   "begin_shape_index": 224,
+   "end_shape_index": 225,
+   "names": [
+    "NH44",
+    "AH43",
+    "Hosur Road"
+   ],
+   "use": "road",
+   "road_class": "trunk",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1553783843,
+   "lane_count": 3,
+   "length_m": 115.0
+  },
+  {
+   "begin_shape_index": 225,
+   "end_shape_index": 226,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 160511376,
+   "lane_count": 2,
+   "length_m": 48.0
+  },
+  {
+   "begin_shape_index": 226,
+   "end_shape_index": 227,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 1303740766,
+   "lane_count": 2,
+   "length_m": 179.0
+  },
+  {
+   "begin_shape_index": 227,
+   "end_shape_index": 233,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": true,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 160511377,
+   "lane_count": 2,
+   "length_m": 1939.0
+  },
+  {
+   "begin_shape_index": 233,
+   "end_shape_index": 237,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 160512746,
+   "lane_count": 2,
+   "length_m": 1019.0
+  },
+  {
+   "begin_shape_index": 237,
+   "end_shape_index": 238,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 160512746,
+   "lane_count": 2,
+   "length_m": 100.0
+  },
+  {
+   "begin_shape_index": 238,
+   "end_shape_index": 256,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 160512746,
+   "lane_count": 2,
+   "length_m": 3196.0
+  },
+  {
+   "begin_shape_index": 256,
+   "end_shape_index": 269,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": true,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 160512744,
+   "lane_count": 2,
+   "length_m": 1855.0
+  },
+  {
+   "begin_shape_index": 269,
+   "end_shape_index": 280,
+   "names": [
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": true,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 1182428268,
+   "lane_count": 2,
+   "length_m": 211.0
+  },
+  {
+   "begin_shape_index": 280,
+   "end_shape_index": 282,
+   "names": [
+    "BETL",
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 1303740772,
+   "lane_count": 2,
+   "length_m": 190.0
+  },
+  {
+   "begin_shape_index": 282,
+   "end_shape_index": 284,
+   "names": [
+    "BETL",
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": true,
+   "way_id": 1443937644,
+   "lane_count": 2,
+   "length_m": 99.0
+  },
+  {
+   "begin_shape_index": 284,
+   "end_shape_index": 289,
+   "names": [
+    "BETL",
+    "Electronic City Flyover"
+   ],
+   "use": "road",
+   "road_class": "motorway",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 160512745,
+   "lane_count": 2,
+   "length_m": 186.0
+  },
+  {
+   "begin_shape_index": 289,
+   "end_shape_index": 290,
+   "names": [],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1219706171,
+   "lane_count": 1,
+   "length_m": 20.0
+  },
+  {
+   "begin_shape_index": 290,
+   "end_shape_index": 291,
+   "names": [],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1219706171,
+   "lane_count": 1,
+   "length_m": 8.0
+  },
+  {
+   "begin_shape_index": 291,
+   "end_shape_index": 292,
+   "names": [
+    "Infosys Avenue"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1214466114,
+   "lane_count": 2,
+   "length_m": 37.0
+  },
+  {
+   "begin_shape_index": 292,
+   "end_shape_index": 293,
+   "names": [
+    "Infosys Avenue"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1214466114,
+   "lane_count": 2,
+   "length_m": 34.0
+  },
+  {
+   "begin_shape_index": 293,
+   "end_shape_index": 294,
+   "names": [
+    "Infosys Avenue"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1300839157,
+   "lane_count": 2,
+   "length_m": 114.0
+  },
+  {
+   "begin_shape_index": 294,
+   "end_shape_index": 296,
+   "names": [
+    "Infosys Avenue"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1300839158,
+   "lane_count": 2,
+   "length_m": 131.0
+  },
+  {
+   "begin_shape_index": 296,
+   "end_shape_index": 297,
+   "names": [
+    "Infosys Avenue"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1300839158,
+   "lane_count": 2,
+   "length_m": 82.0
+  },
+  {
+   "begin_shape_index": 297,
+   "end_shape_index": 298,
+   "names": [],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1421388580,
+   "lane_count": 1,
+   "length_m": 34.0
+  },
+  {
+   "begin_shape_index": 298,
+   "end_shape_index": 299,
+   "names": [],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1300839155,
+   "lane_count": 2,
+   "length_m": 17.0
+  },
+  {
+   "begin_shape_index": 299,
+   "end_shape_index": 300,
+   "names": [],
+   "use": "road",
+   "road_class": "residential",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1084668288,
+   "lane_count": 1,
+   "length_m": 3.0
+  },
+  {
+   "begin_shape_index": 300,
+   "end_shape_index": 302,
+   "names": [
+    "1st Cross Road"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 1298706712,
+   "lane_count": 2,
+   "length_m": 30.0
+  },
+  {
+   "begin_shape_index": 302,
+   "end_shape_index": 304,
+   "names": [
+    "1st Cross Road"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 364872807,
+   "lane_count": 2,
+   "length_m": 89.0
+  },
+  {
+   "begin_shape_index": 304,
+   "end_shape_index": 306,
+   "names": [
+    "1st Cross Road"
+   ],
+   "use": "road",
+   "road_class": "tertiary",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 364872807,
+   "lane_count": 2,
+   "length_m": 11.0
+  },
+  {
+   "begin_shape_index": 306,
+   "end_shape_index": 307,
+   "names": [],
+   "use": "service_road",
+   "road_class": "service_other",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 38755471,
+   "lane_count": 1,
+   "length_m": 2.0
+  },
+  {
+   "begin_shape_index": 307,
+   "end_shape_index": 309,
+   "names": [],
+   "use": "service_road",
+   "road_class": "service_other",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 38755471,
+   "lane_count": 1,
+   "length_m": 30.0
+  },
+  {
+   "begin_shape_index": 309,
+   "end_shape_index": 310,
+   "names": [],
+   "use": "service_road",
+   "road_class": "service_other",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 38755471,
+   "lane_count": 1,
+   "length_m": 7.0
+  },
+  {
+   "begin_shape_index": 310,
+   "end_shape_index": 311,
+   "names": [],
+   "use": "service_road",
+   "road_class": "service_other",
+   "bridge": false,
+   "tunnel": false,
+   "toll": false,
+   "way_id": 38755471,
+   "lane_count": 1,
+   "length_m": 9.0
+  }
+ ],
+ "forks": {
+  "184": [
+   {
+    "names": [],
+    "way_id": 172853381,
+    "use": "turn_channel",
+    "road_class": "primary",
+    "bridge": false,
+    "tunnel": false,
+    "toll": false,
+    "percent_along": 0.0,
+    "length_m": 173
+   }
+  ],
+  "209": [],
+  "225": [
+   {
+    "names": [
+     "NH44",
+     "AH43",
+     "Hosur Road"
+    ],
+    "way_id": 1196514117,
+    "use": "road",
+    "road_class": "trunk",
+    "bridge": false,
+    "tunnel": false,
+    "toll": false,
+    "percent_along": 0.0,
+    "length_m": 323
+   }
+  ]
+ }
+}
