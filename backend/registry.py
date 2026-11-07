@@ -1,0 +1,117 @@
+"""Live trips, in memory: one TripEngine per active trip, plus its event log and listeners.
+
+This is the seam where Redis goes later (live positions, pub/sub across several
+server processes). The router code only talks to `TripRegistry`, so swapping the
+storage does not touch the endpoints.
+
+DPDP (CLAUDE.md rule 5): raw GPS is NOT stored here. We keep the engine's state,
+the last fix time, a short window of fix times for de-duplication, and the event
+log (which holds distances and road names, not coordinates).
+"""
+
+from __future__ import annotations
+
+import asyncio
+import secrets
+from collections import deque
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
+
+from engine.trip import TripEngine
+from engine.wrong_way import Event
+
+SEEN_WINDOW = 2000     # how many recent fix times to remember for de-duplication
+
+
+def _epoch(ts: str) -> float:
+    return datetime.fromisoformat(ts[:-1] + "+00:00").astimezone(timezone.utc).timestamp()
+
+
+@dataclass
+class IngestResult:
+    accepted: int = 0
+    duplicates: int = 0
+    late: int = 0
+
+
+@dataclass
+class TripState:
+    trip_id: str
+    engine: TripEngine
+    backlog: int
+    active: bool = True
+    seq: int = 0
+    last_t: float | None = None
+    lock: asyncio.Lock = field(default_factory=asyncio.Lock)
+    log: deque = field(default_factory=deque)
+    subscribers: set = field(default_factory=set)
+    _seen: set = field(default_factory=set)
+    _seen_order: deque = field(default_factory=deque)
+
+    def remember(self, t: float) -> None:
+        self._seen.add(t)
+        self._seen_order.append(t)
+        if len(self._seen_order) > SEEN_WINDOW:
+            self._seen.discard(self._seen_order.popleft())
+
+
+class TripRegistry:
+    def __init__(self, event_backlog: int = 500):
+        self._trips: dict[str, TripState] = {}
+        self._backlog = event_backlog
+
+    # -- lifecycle -------------------------------------------------------------------
+    def create(self, engine: TripEngine) -> TripState:
+        trip_id = "trp_" + secrets.token_hex(8)           # unguessable
+        state = TripState(trip_id, engine, self._backlog, log=deque(maxlen=self._backlog))
+        self._trips[trip_id] = state
+        return state
+
+    def get(self, trip_id: str) -> TripState | None:
+        return self._trips.get(trip_id)
+
+    def end(self, state: TripState) -> None:
+        """Stop tracking: no more fixes accepted, listeners told to disconnect."""
+        state.active = False
+        for q in list(state.subscribers):
+            q.put_nowait(None)
+
+    # -- GPS in -------------------------------------------------------------------------
+    async def ingest(self, state: TripState, points: list[dict]) -> IngestResult:
+        """Feed a batch (any order, may repeat) into the trip's engine, oldest first."""
+        result = IngestResult()
+        async with state.lock:                            # one batch at a time per trip
+            for p in sorted(points, key=lambda p: _epoch(p["ts"])):
+                t = _epoch(p["ts"])
+                if t in state._seen:
+                    result.duplicates += 1
+                    continue
+                state.remember(t)
+                result.accepted += 1
+                if state.last_t is not None and t <= state.last_t:
+                    result.late += 1                      # engine needs time to move forward
+                    continue
+                state.last_t = t
+                for event in state.engine.update(p):
+                    self.publish(state, event)
+        return result
+
+    # -- events out -------------------------------------------------------------------
+    def publish(self, state: TripState, event: Event) -> dict:
+        state.seq += 1
+        message = {"event": event.event, "trip_id": state.trip_id, "ts": event.ts,
+                   "seq": state.seq, "data": event.data}
+        state.log.append(message)
+        for q in list(state.subscribers):
+            q.put_nowait(message)
+        return message
+
+    def subscribe(self, state: TripState, last_seq: int = 0) -> tuple[list[dict], asyncio.Queue]:
+        """Events the client missed (seq > last_seq), plus a queue for new ones."""
+        q: asyncio.Queue = asyncio.Queue()
+        missed = [m for m in state.log if m["seq"] > last_seq]
+        state.subscribers.add(q)
+        return missed, q
+
+    def unsubscribe(self, state: TripState, q: asyncio.Queue) -> None:
+        state.subscribers.discard(q)

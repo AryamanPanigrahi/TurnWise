@@ -98,3 +98,16 @@ the resolved pin on the dashboard map before the trip starts.
 Replaces the working name "Daari". Trademark, Play Store and domain checks are
 pending. Some files still say `daari` (pyproject name, `.env.example` database
 names, the contract schema `$id`) and should be renamed together.
+
+### 0012 — Backend: FastAPI, in-memory trips first, shared bearer token  (2026-11-07, Aryaman, status: proposed)
+`backend/` implements the contracts (`POST /v1/gps`, `WS /v1/trips/{id}/events`, `POST /v1/ask`) plus
+`POST /v1/trips` and `POST /v1/trips/{id}/end`. Live trips sit behind `TripRegistry` (in memory), which is
+the seam for Redis later. Raw GPS is not stored (DPDP): only engine state, fix times and the event log.
+Auth is one shared bearer token (`TURNWISE_API_TOKEN`, server refuses to start without it): a placeholder
+for per-driver JWTs, roles and consent checks, which come with the security work. Answers to the
+contract's open question: the events socket accepts `?last_seq=N` and replays missed events from a
+bounded in-memory log; ping/pong is enough, no `heartbeat` event yet.
+
+### 0013 — Backend dependencies  (2026-11-07, Aryaman, status: proposed)
+FastAPI (the framework named in CLAUDE.md; also brings pydantic for request validation), uvicorn[standard]
+(ASGI server, `websockets` included for the events socket), httpx (FastAPI's test client, dev only).

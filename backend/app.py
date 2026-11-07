@@ -1,0 +1,133 @@
+"""The FastAPI application: trips, GPS ingest, the events WebSocket and /ask.
+
+    TURNWISE_API_TOKEN=<secret> uvicorn backend.app:app_from_env --factory
+
+Endpoints (contracts in docs/contracts/):
+    POST /v1/trips                      create a trip: route it with Valhalla, start an engine
+    POST /v1/trips/{id}/end             stop tracking this trip
+    POST /v1/gps                        batch of GPS fixes          -> 202 {accepted, duplicates}
+    WS   /v1/trips/{id}/events          off_route, decision_point_ahead, arrived, ...
+    POST /v1/ask                        {trip_id, intent, slots}    -> {answer_key, facts}
+    GET  /healthz
+
+Authentication is a single shared bearer token for now (a placeholder: per-driver
+JWTs, roles and consent checks come with the security work). The server refuses to
+start without a token rather than run open.
+"""
+
+from __future__ import annotations
+
+import asyncio
+import secrets
+from typing import Callable
+
+from fastapi import Depends, FastAPI, HTTPException, Request, WebSocket, WebSocketDisconnect
+from fastapi.concurrency import run_in_threadpool
+
+from backend.registry import TripRegistry, TripState
+from backend.schemas import (AskRequest, AskResponse, GpsAccepted, GpsBatch, TripCreate, TripCreated)
+from backend.settings import Settings
+from engine.trip import TripEngine
+from engine.valhalla import fetch_bundle, http_transport
+
+# Turns (origin, destination) into a route bundle. Replaceable, so tests need no Valhalla.
+RouteProvider = Callable[[tuple[float, float], tuple[float, float]], dict]
+
+
+def _authorized(header: str | None, token: str) -> bool:
+    scheme, _, value = (header or "").partition(" ")
+    return scheme.lower() == "bearer" and secrets.compare_digest(value.encode(), token.encode())
+
+
+def create_app(settings: Settings | None = None, route_provider: RouteProvider | None = None,
+               registry: TripRegistry | None = None) -> FastAPI:
+    settings = settings or Settings.from_env()
+    if not settings.api_token:
+        raise RuntimeError("TURNWISE_API_TOKEN is not set; refusing to start an open server")
+    if route_provider is None:
+        transport = http_transport(settings.valhalla_url)
+        route_provider = lambda origin, dest: fetch_bundle(transport, origin, dest)  # noqa: E731
+
+    app = FastAPI(title="TurnWise", version="0.1")
+    app.state.registry = registry or TripRegistry(settings.event_backlog)
+
+    def require_auth(request: Request) -> None:
+        if not _authorized(request.headers.get("authorization"), settings.api_token):
+            raise HTTPException(401, "missing or invalid bearer token", headers={"WWW-Authenticate": "Bearer"})
+
+    def active_trip(trip_id: str) -> TripState:
+        """The trip, or 403 (unknown ids look the same as someone else's trip) / 409 (ended)."""
+        state = app.state.registry.get(trip_id)
+        if state is None:
+            raise HTTPException(403, "trip not found for this driver")
+        if not state.active:
+            raise HTTPException(409, "trip is not active")
+        return state
+
+    @app.get("/healthz")
+    def healthz():
+        return {"ok": True}
+
+    @app.post("/v1/trips", status_code=201, response_model=TripCreated, dependencies=[Depends(require_auth)])
+    async def create_trip(body: TripCreate):
+        origin, dest = (body.origin.lat, body.origin.lon), (body.destination.lat, body.destination.lon)
+        try:
+            bundle = await run_in_threadpool(route_provider, origin, dest)
+            engine = TripEngine(bundle)
+        except Exception:                      # routing service down, no route found, ...
+            raise HTTPException(502, "could not plan a route") from None
+        state = app.state.registry.create(engine)
+        return TripCreated(trip_id=state.trip_id, length_m=engine.length_m, decision_points=len(engine.points))
+
+    @app.post("/v1/trips/{trip_id}/end", status_code=204, dependencies=[Depends(require_auth)])
+    async def end_trip(trip_id: str):
+        app.state.registry.end(active_trip(trip_id))
+
+    @app.post("/v1/gps", status_code=202, response_model=GpsAccepted, dependencies=[Depends(require_auth)])
+    async def ingest_gps(batch: GpsBatch):
+        state = active_trip(batch.points[0].trip_id)
+        result = await app.state.registry.ingest(state, [p.model_dump() for p in batch.points])
+        return GpsAccepted(accepted=result.accepted, duplicates=result.duplicates, late=result.late)
+
+    @app.post("/v1/ask", response_model=AskResponse, dependencies=[Depends(require_auth)])
+    async def ask(body: AskRequest):
+        state = active_trip(body.trip_id)
+        return AskResponse(**state.engine.ask(body.intent, body.slots))
+
+    @app.websocket("/v1/trips/{trip_id}/events")
+    async def events(ws: WebSocket, trip_id: str, last_seq: int = 0):
+        # Authenticate before accepting: a bad client never gets a socket.
+        state = app.state.registry.get(trip_id)
+        if (not _authorized(ws.headers.get("authorization"), settings.api_token)
+                or state is None or not state.active):
+            await ws.close(code=1008)          # policy violation
+            return
+        await ws.accept()
+        missed, queue = app.state.registry.subscribe(state, last_seq)
+        listener = asyncio.ensure_future(ws.receive())      # completes when the client disconnects
+        try:
+            for message in missed:
+                await ws.send_json(message)
+            while True:
+                getter = asyncio.ensure_future(queue.get())
+                done, _ = await asyncio.wait({getter, listener}, return_when=asyncio.FIRST_COMPLETED)
+                if listener in done:
+                    getter.cancel()
+                    break
+                message = getter.result()
+                if message is None:            # trip ended
+                    await ws.close(code=1000)
+                    break
+                await ws.send_json(message)
+        except WebSocketDisconnect:
+            pass
+        finally:
+            listener.cancel()
+            app.state.registry.unsubscribe(state, queue)
+
+    return app
+
+
+def app_from_env() -> FastAPI:
+    """Entry point for `uvicorn backend.app:app_from_env --factory`."""
+    return create_app()
