@@ -38,3 +38,9 @@ dashboard/dist/
 voice/out/
 voice/logs/
 routing/data-archive/
+
+# Locally recorded test drives (raw GPS: trim and review before committing any)
+traces/local/
+
+# Self-signed HTTPS certificate for local field tests
+.certs/

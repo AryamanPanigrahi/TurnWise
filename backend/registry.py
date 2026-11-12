@@ -65,6 +65,7 @@ class TripRegistry:
         self._trips: dict[str, TripState] = {}
         self._backlog = event_backlog
         self.sink = sink            # e.g. the database writer; must not raise
+        self.fix_sink: Callable[[str, dict], None] | None = None   # dev trace recorder: every processed fix
 
     # -- lifecycle -------------------------------------------------------------------
     def create(self, engine: TripEngine) -> TripState:
@@ -102,6 +103,8 @@ class TripRegistry:
                     result.late += 1                      # engine needs time to move forward
                     continue
                 state.last_t = t
+                if self.fix_sink is not None:
+                    self.fix_sink(state.trip_id, p)
                 for event in state.engine.update(p):
                     message = self.publish(state, event)
                     if self.sink is not None:           # after publishing: alerts never wait for storage

@@ -9,6 +9,7 @@ Endpoints (contracts in docs/contracts/):
     WS   /v1/trips/{id}/events          off_route, decision_point_ahead, arrived, ...
     POST /v1/ask                        {trip_id, intent, slots}    -> {answer_key, facts}
     GET  /healthz
+    GET  /field                         phone-browser test client (only with TURNWISE_FIELD_KIT=1)
 
 Authentication is a single shared bearer token for now (a placeholder: per-driver
 JWTs, roles and consent checks come with the security work). The server refuses to
@@ -28,6 +29,7 @@ from fastapi.concurrency import run_in_threadpool
 
 from backend.db import make_engine, make_session_factory
 from backend.persistence import TripPersistence, UnknownReference
+from backend.recorder import TraceRecorder
 from backend.registry import TripRegistry, TripState
 from backend.schemas import (AskRequest, AskResponse, GpsAccepted, GpsBatch, TripCreate, TripCreated)
 from backend.settings import Settings
@@ -38,9 +40,21 @@ from engine.valhalla import fetch_bundle, http_transport
 RouteProvider = Callable[[tuple[float, float], tuple[float, float]], dict]
 
 
+WS_SUBPROTOCOL = "turnwise"
+
+
 def _authorized(header: str | None, token: str) -> bool:
     scheme, _, value = (header or "").partition(" ")
     return scheme.lower() == "bearer" and secrets.compare_digest(value.encode(), token.encode())
+
+
+def _ws_subprotocol_token_ok(ws: WebSocket, token: str) -> bool:
+    """Browsers cannot set an Authorization header on a WebSocket, so a browser client sends
+    the token as the second subprotocol: `new WebSocket(url, ["turnwise", token])`.
+    (Not in the URL, which would end up in logs and history.)"""
+    offered = ws.scope.get("subprotocols") or []
+    return (len(offered) == 2 and offered[0] == WS_SUBPROTOCOL
+            and secrets.compare_digest(offered[1].encode(), token.encode()))
 
 
 def create_app(settings: Settings | None = None, route_provider: RouteProvider | None = None,
@@ -63,8 +77,18 @@ def create_app(settings: Settings | None = None, route_provider: RouteProvider |
 
     app = FastAPI(title="TurnWise", version="0.1", lifespan=lifespan)
     app.state.registry = registry or TripRegistry(settings.event_backlog)
-    if persistence is not None:
-        app.state.registry.sink = persistence.on_event
+    recorder = TraceRecorder(settings.record_dir) if settings.record_dir else None
+
+    async def on_event(trip_id: str, message: dict, fix: dict) -> None:
+        if recorder is not None:
+            recorder.event(trip_id, message)
+        if persistence is not None:
+            await persistence.on_event(trip_id, message, fix)
+
+    if persistence is not None or recorder is not None:
+        app.state.registry.sink = on_event
+    if recorder is not None:
+        app.state.registry.fix_sink = recorder.fix
 
     def require_auth(request: Request) -> None:
         if not _authorized(request.headers.get("authorization"), settings.api_token):
@@ -103,6 +127,8 @@ def create_app(settings: Settings | None = None, route_provider: RouteProvider |
             except Exception:                  # database down: do not start a trip we cannot record
                 app.state.registry.discard(state.trip_id)
                 raise HTTPException(503, "could not record the trip") from None
+        if recorder is not None:
+            recorder.start(state.trip_id, bundle)
         return TripCreated(trip_id=state.trip_id, length_m=engine.length_m, decision_points=len(engine.points))
 
     @app.post("/v1/trips/{trip_id}/end", status_code=204, dependencies=[Depends(require_auth)])
@@ -128,11 +154,12 @@ def create_app(settings: Settings | None = None, route_provider: RouteProvider |
     async def events(ws: WebSocket, trip_id: str, last_seq: int = 0):
         # Authenticate before accepting: a bad client never gets a socket.
         state = app.state.registry.get(trip_id)
-        if (not _authorized(ws.headers.get("authorization"), settings.api_token)
-                or state is None or not state.active):
+        by_header = _authorized(ws.headers.get("authorization"), settings.api_token)
+        by_subprotocol = _ws_subprotocol_token_ok(ws, settings.api_token)
+        if not (by_header or by_subprotocol) or state is None or not state.active:
             await ws.close(code=1008)          # policy violation
             return
-        await ws.accept()
+        await ws.accept(subprotocol=WS_SUBPROTOCOL if by_subprotocol else None)
         missed, queue = app.state.registry.subscribe(state, last_seq)
         listener = asyncio.ensure_future(ws.receive())      # completes when the client disconnects
         try:
@@ -154,6 +181,10 @@ def create_app(settings: Settings | None = None, route_provider: RouteProvider |
         finally:
             listener.cancel()
             app.state.registry.unsubscribe(state, queue)
+
+    if settings.field_kit:
+        from backend import field              # imports voice/, which the core API does not need
+        field.install(app, require_auth, active_trip)
 
     return app
 

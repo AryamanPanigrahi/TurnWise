@@ -134,3 +134,15 @@ episode closes at the last fix. Dev uses host port 5433 (5432 is often taken) an
 Dependencies: sqlalchemy[asyncio] (the ORM named in CLAUDE.md), asyncpg (its async PostgreSQL driver),
 alembic (schema migrations), geoalchemy2 (PostGIS column types).
 Not yet: consent enforcement, the 90-day GPS retention job, encryption at rest, the audit log.
+
+### 0016 — Field-test kit: a phone web page instead of waiting for the Android app  (2026-11-13, Aryaman, status: proposed)
+The Android app is not buildable yet (only `app/core` exists), and real-road testing should not wait for it.
+`backend/field.py` + `backend/static/field.html` (on only with `TURNWISE_FIELD_KIT=1`) is a browser driver
+client that uses the real contract endpoints; speech is the phone's built-in voice, a stand-in for Sarvam.
+`backend/recorder.py` (on only with `TURNWISE_RECORD_DIR`) writes each test trip's GPS, route bundle and
+events to `traces/local/` for replay; the normal server still stores no raw GPS. `backend/fieldserver.py`
+runs it over HTTPS with a self-signed certificate (browsers refuse GPS on http) on the local network.
+The events WebSocket now also accepts the token as a subprotocol (`["turnwise", <token>]`) because browsers
+cannot set an Authorization header on a WebSocket; the header still works for the Android client.
+No new dependencies (Leaflet from CDN with SRI, as in the trace viewer; openssl from Git for the certificate).
+This is a test tool, not the product: no push-to-talk, no Sarvam, no offline buffer beyond a retry queue.

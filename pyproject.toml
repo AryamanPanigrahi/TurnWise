@@ -29,3 +29,4 @@ include = ["voice*", "tools*", "engine*", "backend*"]
 
 [tool.setuptools.package-data]
 voice = ["templates/*.yaml"]
+backend = ["static/*.html"]
