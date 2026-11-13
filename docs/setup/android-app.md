@@ -90,25 +90,27 @@ background location triggers a much stricter Play Store review.
 
 The `android` module (the installable app) is in the repo, so Step 4 above is already done.
 To build it without Android Studio you need two things in `%USERPROFILE%\.turnwise-tools`:
-a JDK 17 (`jdk17\`, Eclipse Temurin zip) and the Android SDK (`android-sdk\` with
-`platforms/android-35`, `build-tools/35.0.0`, `platform-tools`, installed with Google's
+a JDK 17 (folder `jdk17`, the Eclipse Temurin zip) and the Android SDK (folder `android-sdk`
+with `platforms/android-35`, `build-tools/35.0.0` and `platform-tools`, installed with Google's
 command-line tools after accepting the SDK licence). Then, in PowerShell:
 
 ```powershell
 cd app
-.uild-debug.ps1
+```
+```powershell
+.\build-debug.ps1
 ```
 
 It runs the `core` and `android` unit tests and writes
-`appndroiduild\outputspk\debugndroid-debug.apk`.
+`app\android\build\outputs\apk\debug\android-debug.apk`.
 
 ### Put it on a phone
 
 Either copy the APK to the phone and open it (Android asks to allow installing from that
-source), or with USB debugging on:
+source), or, with USB debugging switched on and the phone plugged in, from the repo root:
 
 ```powershell
-$env:USERPROFILE\.turnwise-toolsndroid-sdk\platform-toolsdb.exe install -r appndroiduild\outputspk\debugndroid-debug.apk
+& "$env:USERPROFILE\.turnwise-tools\android-sdk\platform-tools\adb.exe" install -r app\android\build\outputs\apk\debug\android-debug.apk
 ```
 
 ### Run a test with it
