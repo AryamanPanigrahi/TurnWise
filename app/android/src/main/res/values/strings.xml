@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TurnWise Driver</string>
+    <string name="tap_map">Tap the map to choose a destination.</string>
+    <string name="ready">Ready. Press Start trip.</string>
+    <string name="destination">Destination</string>
+    <string name="you">You</string>
+    <string name="server_hint">Server, e.g. http://192.168.43.10:8443</string>
+    <string name="token_hint">API token</string>
+    <string name="start_trip">Start trip</string>
+    <string name="end_trip">End trip</string>
+    <string name="ask_branch">Flyover or service road?</string>
+    <string name="ask_side">Left or right?</string>
+    <string name="ask_distance">How far to the next turn?</string>
+    <string name="ask_wrong">Am I on the right road?</string>
+    <string name="ask_eta">How long left?</string>
+    <string name="lang_en">English</string>
+    <string name="lang_hi">Hindi</string>
+    <string name="lang_kn">Kannada</string>
+    <string name="not_started">Not started.</string>
+    <string name="need_server">Enter the server address and the API token.</string>
+    <string name="waiting_gps">Waiting for GPS…</string>
+    <string name="no_gps">No GPS fix. Turn on location, go outdoors and try again.</string>
+    <string name="planning">Planning the route…</string>
+    <string name="start_failed">Could not start: %1$s</string>
+    <string name="ask_failed">Question failed: %1$s</string>
+    <string name="trip_started">Trip started. Drive safely.</string>
+    <string name="trip_ended">Trip ended. Tap the map for a new destination.</string>
+    <string name="trip_log">Trip: %1$.1f km. Decision points: %2$d</string>
+    <string name="log_line">%1$s  %2$s\n%3$s</string>
+    <string name="arrived">Arrived.</string>
+    <string name="permission_ok">Location allowed. Press Start trip.</string>
+    <string name="permission_needed">Location permission is needed to navigate.</string>
+    <string name="consent_title">Location tracking</string>
+    <string name="consent_text">During a trip this app sends the location of this phone to the TurnWise server of your fleet once a second, to warn you about wrong turns and answer your questions. It stops when the trip ends. It does not track you outside a trip. Do you agree?</string>
+    <string name="consent_yes">I agree</string>
+    <string name="consent_no">No</string>
+    <string name="consent_needed">Without your agreement the app cannot start a trip.</string>
+    <string name="channel_trip">Trip in progress</string>
+    <string name="note_title">TurnWise trip in progress</string>
+    <string name="note_text">Sharing location with your fleet until the trip ends.</string>
+</resources>

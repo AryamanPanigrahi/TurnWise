@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- DEBUG builds only: allow plain http so the app can reach a laptop on the phone's hotspot
+     (python -m backend.fieldserver with the http flag). Release builds keep Android's default: https only. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application android:usesCleartextTraffic="true" />
+</manifest>

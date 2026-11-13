@@ -85,3 +85,41 @@ Write these down; they come with the location service and the mic:
 Background location (`ACCESS_BACKGROUND_LOCATION`) is **not** needed: a
 foreground service with a notification counts as foreground, and asking for
 background location triggers a much stricter Play Store review.
+
+## Without Android Studio: build the debug app from the command line
+
+The `android` module (the installable app) is in the repo, so Step 4 above is already done.
+To build it without Android Studio you need two things in `%USERPROFILE%\.turnwise-tools`:
+a JDK 17 (`jdk17\`, Eclipse Temurin zip) and the Android SDK (`android-sdk\` with
+`platforms/android-35`, `build-tools/35.0.0`, `platform-tools`, installed with Google's
+command-line tools after accepting the SDK licence). Then, in PowerShell:
+
+```powershell
+cd app
+.uild-debug.ps1
+```
+
+It runs the `core` and `android` unit tests and writes
+`appndroiduild\outputspk\debugndroid-debug.apk`.
+
+### Put it on a phone
+
+Either copy the APK to the phone and open it (Android asks to allow installing from that
+source), or with USB debugging on:
+
+```powershell
+$env:USERPROFILE\.turnwise-toolsndroid-sdk\platform-toolsdb.exe install -r appndroiduild\outputspk\debugndroid-debug.apk
+```
+
+### Run a test with it
+
+1. Laptop on the phone's hotspot; `docker start valhalla`; then
+   `.venv\Scripts\python.exe -m backend.fieldserver --http` (plain http: the debug app allows it,
+   release builds do not). It prints the server address and the token.
+2. In the app: agree to location tracking, enter the address and token, allow location and
+   notifications, tap a destination on the map, press **Start trip**.
+3. The screen can be off: a notification shows while the trip is tracked. **End trip** stops GPS.
+
+What this build is: a field-test shell on `core`. Speech is the phone's own voice and questions
+are buttons; push-to-talk and Sarvam audio come when the voice service has an HTTP endpoint.
+The GPS buffer is in memory (lost if Android kills the app), and the token is stored unencrypted.
