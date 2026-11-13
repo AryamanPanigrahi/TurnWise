@@ -1,0 +1,73 @@
+# Hindi templates.
+# review_status: DRAFT — review every phrase with real drivers before the pilot.
+lang: hi
+version: 1
+review_status: draft-needs-native-review
+
+# Spelling variants (बाएं/बाएँ/बायें, गलत/ग़लत) are listed explicitly because STT
+# output is not consistent about chandrabindu and nukta.
+intents:
+  am_i_wrong: ["गलत", "ग़लत", "रॉन्ग", "wrong", "सही रास्त", "रास्ता भटक", "भटक गय"]
+  which_branch: ["फ्लाईओवर", "फ्लाई ओवर", "flyover", "सर्विस रोड", "सर्विस लेन", "service road", "अंडरपास", "ऊपर वाल", "नीचे वाल"]
+  left_or_right: ["बाएं", "बाएँ", "बायें", "बाय", "दाएं", "दाएँ", "दायें", "दाय", "लेफ्ट", "राइट", "left", "right", "सीधे", "सीधा"]
+  distance_to_next: ["कितनी दूर", "कितना दूर", "दूरी", "कितने मीटर", "अगला मोड़", "how far"]
+  eta: ["कितना समय", "कितनी देर", "कितना टाइम", "कब पहुँच", "कब पहुंच", "पहुँचेंग", "पहुंचेंग", "eta"]
+  repeat: ["फिर से", "दोबारा", "दुबारा", "रिपीट", "repeat", "क्या बोला", "क्या कहा"]
+
+slots:
+  branch:
+    flyover: ["फ्लाईओवर", "फ्लाई ओवर", "flyover", "ऊपर वाल", "पुल के ऊपर"]
+    service_road: ["सर्विस रोड", "सर्विस लेन", "service road", "नीचे वाल"]
+    underpass: ["अंडरपास", "underpass"]
+
+vocab:
+  units:
+    m: "{n} मीटर"
+    km: "{n} किलोमीटर"
+    min: "{n} मिनट"
+    hour: "{n} घंटे"
+    hour_min: "{h} {m}"
+  branch:
+    flyover: "फ्लाईओवर"
+    service_road: "सर्विस रोड"
+    underpass: "अंडरपास"
+    surface: "ऊपर वाली सड़क"
+    left_fork: "बाएँ वाला रास्ता"
+    right_fork: "दाएँ वाला रास्ता"
+  direction:
+    left: "बाएँ"
+    right: "दाएँ"
+  maneuver:
+    turn_left: "बायाँ मोड़"
+    turn_right: "दायाँ मोड़"
+    keep_left: "बाएँ वाला रास्ता"
+    keep_right: "दाएँ वाला रास्ता"
+    u_turn: "यू-टर्न"
+    roundabout: "गोल चक्कर"
+    arrive: "आपका स्टॉप"
+  recovery:
+    u_turn: "यू-टर्न लीजिए"
+    turn_left: "बाएँ मुड़िए"
+    turn_right: "दाएँ मुड़िए"
+    continue: "सीधे चलिए"
+    reroute: "स्क्रीन पर नया रास्ता देखिए"
+
+answers:
+  which_branch:
+    default: "{distance} आगे {branch} लीजिए।"
+    with_landmark: "{distance} आगे, {landmark} के पास, {branch} लीजिए।"
+  left_or_right:
+    default: "{distance} बाद {direction} मुड़िए।"
+    with_landmark: "{distance} बाद, {landmark} के पास, {direction} मुड़िए।"
+  left_or_right.straight: "{distance} तक सीधे चलिए।"
+  distance_to_next: "अगला {maneuver} {distance} दूर है।"
+  am_i_wrong.on_route: "आप सही रास्ते पर हैं।"
+  am_i_wrong.off_route: "आप रास्ते से हट गए हैं। {distance} बाद {recovery}।"
+  eta: "अभी {remaining} बाकी है, लगभग {eta}।"
+  not_sure: "पक्का नहीं पता, स्क्रीन देखिए।"
+  please_repeat: "कृपया फिर से बोलिए।"
+
+alerts:
+  off_route: "गलत रास्ता! {distance} बाद {recovery}।"
+  off_route_generic: "गलत रास्ता! स्क्रीन देखिए।"
+  back_on_route: "आप फिर से सही रास्ते पर हैं।"

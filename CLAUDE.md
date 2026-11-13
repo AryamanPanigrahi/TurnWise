@@ -1,6 +1,6 @@
-# CLAUDE.md — Daari (working name)
+# CLAUDE.md — TurnWise
 
-*Daari* (ದಾರಿ) means "the way" in Kannada. The name is pending a trademark, Play Store and domain check.
+*TurnWise* is the project name (it replaces the earlier working name "Daari"). Trademark, Play Store and domain checks are still pending.
 
 Voice-first navigation for commercial fleets in India: delivery, trucks, ambulances, school buses. It is a layer on top of existing map data. Drivers ask questions in their own language ("flyover or service road?", "left or right?", "how far?") and get instant, correct answers. They are warned within seconds of a wrong turn, instead of being silently rerouted. The fleet company gets a dashboard of deviations, delays and per-driver performance. **The fleet company is the customer; drivers are the users.**
 
@@ -158,8 +158,10 @@ docs/         decisions (ADRs), setup notes written as I learn each step
 ## Commands (fill in as each step is learned — see Working rules)
 
 ```bash
-# routing: download OSM extract, build Valhalla tiles, run Valhalla (Docker)
-# backend: docker compose up -d db redis ; alembic upgrade head ; uvicorn backend.main:app --reload
+# routing: see routing/README.md (download + clip OSM extract, build tiles, run Valhalla in Docker)
+#          docker start valhalla   |   docker stop valhalla
+# backend: docker compose up -d db ; alembic upgrade head      (needs .env, see .env.example; DB on port 5433)
+#          uvicorn backend.app:app_from_env --factory --reload  (needs TURNWISE_API_TOKEN, optional DATABASE_URL)
 # tests:   pytest -q   (replay tests use traces/)
 ```
 

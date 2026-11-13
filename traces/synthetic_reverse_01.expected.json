@@ -1,0 +1,14 @@
+{
+  "clean": false,
+  "events": [
+    {
+      "event": "off_route",
+      "ts": "2026-11-07T04:30:50.000Z",
+      "early_s": 0,
+      "late_s": 7.5,
+      "note": "reversed at 50 s; heading must stay wrong for 5 s"
+    }
+  ],
+  "trace": "synthetic_reverse_01.jsonl",
+  "notes": "Drove east 500 m then back west along the same road; heading rule only."
+}

@@ -1,0 +1,75 @@
+# Kannada templates.
+# review_status: DRAFT written by a non-native author. Ram must review every
+# phrase with real drivers before the pilot.
+lang: kn
+version: 1
+review_status: draft-needs-native-review
+
+# Kannada attaches case suffixes to words (ಎಡಕ್ಕೆ = "to the left"), so token
+# prefix matching lets "ಎಡ" match "ಎಡಕ್ಕೆ". Romanised/English words are kept
+# because drivers code-mix and STT may output them in either script.
+intents:
+  am_i_wrong: ["ತಪ್ಪು", "ರಾಂಗ್", "wrong", "ಸರಿಯಾದ ದಾರಿ", "ಸರಿ ದಾರಿ", "ದಾರಿ ತಪ್ಪ"]
+  which_branch: ["ಫ್ಲೈಓವರ್", "ಫ್ಲೈ ಓವರ್", "ಮೇಲ್ಸೇತುವೆ", "flyover", "ಸರ್ವಿಸ್ ರೋಡ್", "ಸರ್ವೀಸ್ ರೋಡ್", "service road", "ಅಂಡರ್‌ಪಾಸ್", "ಕೆಳಸೇತುವೆ"]
+  left_or_right: ["ಎಡ", "ಬಲ", "ಲೆಫ್ಟ್", "ರೈಟ್", "left", "right", "ನೇರ", "ಸ್ಟ್ರೈಟ್"]
+  distance_to_next: ["ಎಷ್ಟು ದೂರ", "ದೂರ", "ಎಷ್ಟು ಮೀಟರ್", "ಮುಂದಿನ ತಿರುವು", "how far"]
+  eta: ["ಎಷ್ಟು ಹೊತ್ತು", "ಎಷ್ಟು ಸಮಯ", "ಯಾವಾಗ ತಲುಪ", "ತಲುಪ", "ಟೈಮ್", "eta"]
+  repeat: ["ಮತ್ತೆ ಹೇಳಿ", "ಮತ್ತೊಮ್ಮೆ", "ಇನ್ನೊಮ್ಮೆ", "ರಿಪೀಟ್", "repeat", "ಏನು ಹೇಳಿದ"]
+
+slots:
+  branch:
+    flyover: ["ಫ್ಲೈಓವರ್", "ಫ್ಲೈ ಓವರ್", "ಮೇಲ್ಸೇತುವೆ", "flyover"]
+    service_road: ["ಸರ್ವಿಸ್ ರೋಡ್", "ಸರ್ವೀಸ್ ರೋಡ್", "service road", "ಕೆಳಗಿನ ರಸ್ತೆ"]
+    underpass: ["ಅಂಡರ್‌ಪಾಸ್", "ಕೆಳಸೇತುವೆ", "underpass"]
+
+vocab:
+  units:
+    m: "{n} ಮೀಟರ್"
+    km: "{n} ಕಿಲೋಮೀಟರ್"
+    min: "{n} ನಿಮಿಷ"
+    hour: "{n} ಗಂಟೆ"
+    hour_min: "{h} {m}"
+  branch:
+    flyover: "ಫ್ಲೈಓವರ್"
+    service_road: "ಸರ್ವಿಸ್ ರೋಡ್"
+    underpass: "ಅಂಡರ್‌ಪಾಸ್"
+    surface: "ಮೇಲಿನ ರಸ್ತೆ"
+    left_fork: "ಎಡಗಡೆ ದಾರಿ"
+    right_fork: "ಬಲಗಡೆ ದಾರಿ"
+  direction:
+    left: "ಎಡಕ್ಕೆ"
+    right: "ಬಲಕ್ಕೆ"
+  maneuver:
+    turn_left: "ಎಡ ತಿರುವು"
+    turn_right: "ಬಲ ತಿರುವು"
+    keep_left: "ಎಡಗಡೆ ದಾರಿ"
+    keep_right: "ಬಲಗಡೆ ದಾರಿ"
+    u_turn: "ಯೂ-ಟರ್ನ್"
+    roundabout: "ಸರ್ಕಲ್"
+    arrive: "ನಿಮ್ಮ ಸ್ಟಾಪ್"
+  recovery:
+    u_turn: "ಯೂ-ಟರ್ನ್ ತಗೊಳ್ಳಿ"
+    turn_left: "ಎಡಕ್ಕೆ ತಿರುಗಿ"
+    turn_right: "ಬಲಕ್ಕೆ ತಿರುಗಿ"
+    continue: "ನೇರವಾಗಿ ಹೋಗಿ"
+    reroute: "ಸ್ಕ್ರೀನ್‌ನಲ್ಲಿ ಹೊಸ ದಾರಿ ನೋಡಿ"
+
+answers:
+  which_branch:
+    default: "{distance} ಮುಂದೆ {branch} ತಗೊಳ್ಳಿ."
+    with_landmark: "{distance} ಮುಂದೆ, {landmark} ಹತ್ತಿರ, {branch} ತಗೊಳ್ಳಿ."
+  left_or_right:
+    default: "{distance} ನಂತರ {direction} ತಿರುಗಿ."
+    with_landmark: "{distance} ನಂತರ, {landmark} ಹತ್ತಿರ, {direction} ತಿರುಗಿ."
+  left_or_right.straight: "{distance} ನೇರವಾಗಿ ಹೋಗಿ."
+  distance_to_next: "ಮುಂದಿನ {maneuver} {distance} ದೂರದಲ್ಲಿದೆ."
+  am_i_wrong.on_route: "ನೀವು ಸರಿಯಾದ ದಾರಿಯಲ್ಲಿ ಇದ್ದೀರಿ."
+  am_i_wrong.off_route: "ದಾರಿ ತಪ್ಪಿದೆ. {distance} ನಂತರ {recovery}."
+  eta: "ಇನ್ನೂ {remaining} ಇದೆ, ಸುಮಾರು {eta}."
+  not_sure: "ಖಚಿತವಾಗಿ ಗೊತ್ತಿಲ್ಲ, ಸ್ಕ್ರೀನ್ ನೋಡಿ."
+  please_repeat: "ದಯವಿಟ್ಟು ಮತ್ತೊಮ್ಮೆ ಹೇಳಿ."
+
+alerts:
+  off_route: "ತಪ್ಪು ದಾರಿ! {distance} ನಂತರ {recovery}."
+  off_route_generic: "ತಪ್ಪು ದಾರಿ! ಸ್ಕ್ರೀನ್ ನೋಡಿ."
+  back_on_route: "ಮತ್ತೆ ಸರಿಯಾದ ದಾರಿಗೆ ಬಂದಿದ್ದೀರಿ."

@@ -1,0 +1,24 @@
+# Local development services. `docker compose up -d db` starts PostgreSQL 16 + PostGIS.
+# Credentials come from .env (see .env.example); nothing secret lives in this file.
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: turnwise-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-turnwise}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-turnwise}
+    ports:
+      # 5433 on the host: 5432 is often taken by another local Postgres.
+      - "127.0.0.1:${POSTGRES_PORT:-5433}:5432"
+    volumes:
+      - turnwise-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-turnwise} -d ${POSTGRES_DB:-turnwise}"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  turnwise-db-data:

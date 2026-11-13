@@ -1,0 +1,46 @@
+# Secrets
+.env
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Valhalla / OSM build outputs (large, reproducible)
+routing/data/
+routing/tiles/
+*.osm.pbf
+
+# Generated TTS audio cache
+voice/cache/
+
+# Android / Node
+app/build/
+app/*/build/
+app/.kotlin/
+app/.gradle/
+dashboard/node_modules/
+dashboard/dist/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/
+
+# Voice demo outputs
+voice/out/
+voice/logs/
+routing/data-archive/
+
+# Locally recorded test drives (raw GPS: trim and review before committing any)
+traces/local/
+
+# Self-signed HTTPS certificate for local field tests
+.certs/

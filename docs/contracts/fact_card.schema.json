@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://daari.example/contracts/fact_card.schema.json",
+  "title": "FactCard",
+  "description": "Precomputed facts about one upcoming decision point on the route. Produced by engine/, consumed by voice/ and the app. DRAFT v0.1.",
+  "type": "object",
+  "required": ["type", "on_route", "alternatives", "distance_m", "confidence"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["flyover_vs_service", "underpass_vs_surface", "fork", "junction", "roundabout"]
+    },
+    "on_route": {
+      "type": "string",
+      "description": "The branch the driver should take.",
+      "enum": ["flyover", "service_road", "underpass", "surface", "left_fork", "right_fork", "turn_left", "turn_right", "straight", "u_turn"]
+    },
+    "alternatives": {
+      "type": "array",
+      "description": "The other branches at this point (not on the route).",
+      "items": { "type": "string" }
+    },
+    "distance_m": { "type": "number", "minimum": 0 },
+    "landmark": {
+      "type": ["string", "null"],
+      "description": "Nearby OSM POI name, e.g. 'Indian Oil petrol bunk'. null when none is reliable."
+    },
+    "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+  },
+  "additionalProperties": true
+}
