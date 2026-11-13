@@ -86,6 +86,9 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("--port", type=int, default=8443)
     ap.add_argument("--db", action="store_true", help="also record trips in PostgreSQL (needs `docker compose up -d db`)")
     ap.add_argument("--no-record", action="store_true", help="do not write GPS traces to traces/local/")
+    ap.add_argument("--http", action="store_true",
+                    help="plain http instead of https: for the DEBUG Android app (a native app gets GPS without "
+                         "https and cannot trust the self-signed certificate). Use only on your own hotspot.")
     a = ap.parse_args(argv)
 
     env_file = ROOT / ".env"
@@ -102,8 +105,21 @@ def main(argv: list[str] | None = None) -> int:
         os.environ.setdefault("TURNWISE_RECORD_DIR", str(ROOT / "traces" / "local"))
 
     ip = lan_ip()
-    cert, key = ensure_certificate(ip)
-    print(f"""
+    if a.http:
+        cert = key = None
+        print(f"""
+TurnWise field test (plain http, for the debug Android app)
+-----------------------------------------------------------
+In the app, set the server to:   http://{ip}:{a.port}
+and paste this API token:        {token}
+
+The token travels unencrypted: use this only on your own phone hotspot, never public Wi-Fi.
+Recording to: {os.environ.get('TURNWISE_RECORD_DIR', '(off)')}
+Valhalla must be running  ->  docker start valhalla.   Stop with Ctrl+C.
+""", flush=True)
+    else:
+        cert, key = ensure_certificate(ip)
+        print(f"""
 TurnWise field test
 -------------------
 On the phone (same Wi-Fi or the phone's own hotspot), open:
@@ -123,8 +139,8 @@ Stop with Ctrl+C.
 """, flush=True)
 
     import uvicorn
-    uvicorn.run("backend.app:app_from_env", factory=True, host=a.host, port=a.port,
-                ssl_certfile=str(cert), ssl_keyfile=str(key), log_level="warning")
+    tls = {} if a.http else {"ssl_certfile": str(cert), "ssl_keyfile": str(key)}
+    uvicorn.run("backend.app:app_from_env", factory=True, host=a.host, port=a.port, log_level="warning", **tls)
     return 0
 
 

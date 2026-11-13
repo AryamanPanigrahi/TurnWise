@@ -24,6 +24,11 @@ from engine.wrong_way import Event
 SEEN_WINDOW = 2000     # how many recent fix times to remember for de-duplication
 
 
+def stop_id(trip_id: str, seq: int) -> str:
+    """Public id of a trip's stop: "stp_<trip hex>_<seq>" (seq 0 = origin, last = destination)."""
+    return f"stp_{trip_id.removeprefix('trp_')}_{seq}"
+
+
 def _epoch(ts: str) -> float:
     return datetime.fromisoformat(ts[:-1] + "+00:00").astimezone(timezone.utc).timestamp()
 
@@ -114,8 +119,13 @@ class TripRegistry:
     # -- events out -------------------------------------------------------------------
     def publish(self, state: TripState, event: Event) -> dict:
         state.seq += 1
+        data = event.data
+        if event.event == "arrived":
+            # events.md: arrived carries the stop that was reached. A trip has origin (0) and
+            # destination (1) for now, so arriving always means the destination stop.
+            data = {"stop_id": stop_id(state.trip_id, 1), **data}
         message = {"event": event.event, "trip_id": state.trip_id, "ts": event.ts,
-                   "seq": state.seq, "data": event.data}
+                   "seq": state.seq, "data": data}
         state.log.append(message)
         for q in list(state.subscribers):
             q.put_nowait(message)

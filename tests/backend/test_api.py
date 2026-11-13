@@ -186,6 +186,8 @@ def test_websocket_streams_a_whole_trip_in_order(client, trip):
 
     assert [e["seq"] for e in events] == list(range(1, len(events) + 1))
     assert {e["event"] for e in events} == {"decision_point_ahead", "arrived"}
+    arrived = events[-1]["data"]                      # events.md: arrived names the stop that was reached
+    assert arrived["stop_id"] == f"stp_{trip.removeprefix('trp_')}_1" and arrived["distance_m"] <= 30
     assert all(e["trip_id"] == trip and e["ts"].endswith("Z") for e in events)
     flyover = [e for e in events if e["data"].get("on_route_name") == "Electronic City Flyover"]
     assert len(flyover) == 2 and flyover[0]["data"]["on_route"] == "flyover"
