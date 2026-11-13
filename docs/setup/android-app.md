@@ -85,3 +85,43 @@ Write these down; they come with the location service and the mic:
 Background location (`ACCESS_BACKGROUND_LOCATION`) is **not** needed: a
 foreground service with a notification counts as foreground, and asking for
 background location triggers a much stricter Play Store review.
+
+## Without Android Studio: build the debug app from the command line
+
+The `android` module (the installable app) is in the repo, so Step 4 above is already done.
+To build it without Android Studio you need two things in `%USERPROFILE%\.turnwise-tools`:
+a JDK 17 (folder `jdk17`, the Eclipse Temurin zip) and the Android SDK (folder `android-sdk`
+with `platforms/android-35`, `build-tools/35.0.0` and `platform-tools`, installed with Google's
+command-line tools after accepting the SDK licence). Then, in PowerShell:
+
+```powershell
+cd app
+```
+```powershell
+.\build-debug.ps1
+```
+
+It runs the `core` and `android` unit tests and writes
+`app\android\build\outputs\apk\debug\android-debug.apk`.
+
+### Put it on a phone
+
+Either copy the APK to the phone and open it (Android asks to allow installing from that
+source), or, with USB debugging switched on and the phone plugged in, from the repo root:
+
+```powershell
+& "$env:USERPROFILE\.turnwise-tools\android-sdk\platform-tools\adb.exe" install -r app\android\build\outputs\apk\debug\android-debug.apk
+```
+
+### Run a test with it
+
+1. Laptop on the phone's hotspot; `docker start valhalla`; then
+   `.venv\Scripts\python.exe -m backend.fieldserver --http` (plain http: the debug app allows it,
+   release builds do not). It prints the server address and the token.
+2. In the app: agree to location tracking, enter the address and token, allow location and
+   notifications, tap a destination on the map, press **Start trip**.
+3. The screen can be off: a notification shows while the trip is tracked. **End trip** stops GPS.
+
+What this build is: a field-test shell on `core`. Speech is the phone's own voice and questions
+are buttons; push-to-talk and Sarvam audio come when the voice service has an HTTP endpoint.
+The GPS buffer is in memory (lost if Android kills the app), and the token is stored unencrypted.

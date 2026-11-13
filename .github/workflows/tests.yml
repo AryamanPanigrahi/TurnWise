@@ -53,7 +53,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
       - if: steps.has.outputs.app == 'yes'
         working-directory: app
-        run: ./gradlew :core:test --console=plain
+        run: ./gradlew :core:test :android:testDebugUnitTest :android:lintDebug :android:assembleDebug --console=plain
 
   dashboard:
     runs-on: ubuntu-latest

@@ -146,3 +146,15 @@ The events WebSocket now also accepts the token as a subprotocol (`["turnwise", 
 cannot set an Authorization header on a WebSocket; the header still works for the Android client.
 No new dependencies (Leaflet from CDN with SRI, as in the trace viewer; openssl from Git for the certificate).
 This is a test tool, not the product: no push-to-talk, no Sarvam, no offline buffer beyond a retry queue.
+
+### 0017 — Android driver app: a thin `android` module on `core`, debug build for field tests  (2026-11-13, Aryaman, status: proposed)
+`app/android` is the installable app Ram's guide planned (Empty Views Activity, min SDK 26), written by hand and
+built from the command line (JDK 17 + SDK command-line tools; Android Studio is optional). It only wires
+Android to `core`: a foreground location service feeds `GpsBuffer`/`GpsUploader`, the events socket feeds
+`TripEvent`/`EventSequencer`, and the screen shows and speaks what the server says. Tracking needs a recorded
+consent and stops with the trip (`TrackingGate`). Wrong-way lines are also kept on the phone so an alert
+survives a network drop. Debug builds allow plain http (to reach a laptop on a hotspot); release builds do not.
+Dependencies: OkHttp 4.12 (HTTP and WebSocket client; the standard on Android), osmdroid 6.1.20 (OpenStreetMap
+view with no Google dependency, per rule 6), MockWebServer and JUnit 4 (tests only), Android Gradle Plugin 8.10.1.
+Not yet: push-to-talk and Sarvam audio (needs a voice HTTP endpoint), a disk-backed `PointStore`, encrypted
+token storage, per-driver login. Never run on a device at the time of writing: compiled, unit-tested and linted only.
